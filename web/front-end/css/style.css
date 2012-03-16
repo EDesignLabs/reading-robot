@@ -1,0 +1,5 @@
+body{
+	font-family: sans-serif;
+	overflow-x: hidden;
+	background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
+}
