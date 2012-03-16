@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0A82E5150BF6FA0048058C /* GenericWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A82E4150BF6FA0048058C /* GenericWebView.m */; };
 		8F44906414FEB9D4004F90C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44906314FEB9D4004F90C8 /* UIKit.framework */; };
 		8F44906614FEB9D4004F90C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44906514FEB9D4004F90C8 /* Foundation.framework */; };
 		8F44906814FEB9D4004F90C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44906714FEB9D4004F90C8 /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F0A82E3150BF6FA0048058C /* GenericWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericWebView.h; sourceTree = "<group>"; };
+		8F0A82E4150BF6FA0048058C /* GenericWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericWebView.m; sourceTree = "<group>"; };
 		8F44905F14FEB9D4004F90C8 /* ReadingBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F44906314FEB9D4004F90C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8F44906514FEB9D4004F90C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				8F44907314FEB9D4004F90C8 /* AppDelegate.m */,
 				8F44907514FEB9D4004F90C8 /* MainStoryboard_iPhone.storyboard */,
 				8F44907814FEB9D4004F90C8 /* MainStoryboard_iPad.storyboard */,
+				8F0A82E3150BF6FA0048058C /* GenericWebView.h */,
+				8F0A82E4150BF6FA0048058C /* GenericWebView.m */,
 				8F44907B14FEB9D4004F90C8 /* ViewController.h */,
 				8F44907C14FEB9D4004F90C8 /* ViewController.m */,
 				8F44906A14FEB9D4004F90C8 /* Supporting Files */,
@@ -265,6 +270,7 @@
 				8F44907014FEB9D4004F90C8 /* main.m in Sources */,
 				8F44907414FEB9D4004F90C8 /* AppDelegate.m in Sources */,
 				8F44907D14FEB9D4004F90C8 /* ViewController.m in Sources */,
+				8F0A82E5150BF6FA0048058C /* GenericWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +452,7 @@
 				8F44909714FEB9D4004F90C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F44909814FEB9D4004F90C8 /* Build configuration list for PBXNativeTarget "ReadingBuddyTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +461,7 @@
 				8F44909A14FEB9D4004F90C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

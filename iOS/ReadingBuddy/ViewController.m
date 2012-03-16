@@ -10,6 +10,9 @@
 
 @implementation ViewController
 
+@synthesize startURL;
+@synthesize webView;
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -21,7 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    
 }
 
 - (void)viewDidUnload

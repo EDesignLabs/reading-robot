@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class GenericWebView;
+
 @interface ViewController : UIViewController
+
+{
+    NSString *startURL;
+    GenericWebView *webView;
+}
+
+@property (nonatomic, retain) NSString *startURL;
+@property (nonatomic, retain) GenericWebView *webView;
 
 @end

@@ -7,14 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import "GenericWebView.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize webController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    UIViewController *controller = self.window.rootViewController;
+
+    NSLog(@"[app delegate] - application did finish launching - top controller is: %@", controller);
+
+    webController = (GenericWebView *) controller; 
+    //[webController reload];
+    
+	[self.window makeKeyAndVisible];
+    webController.URL = @"http://www.google.com";
+    
+
     return YES;
 }
 							
