@@ -5,36 +5,111 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 		
 		<link href='http://fonts.googleapis.com/css?family=Antic+Didone' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="js/jquery.flexslider.js" type="text/javascript"></script>
+		
+		<script src="js/global.js" type="text/javascript"></script>
 		
 		<link href="css/screen-login.css" rel="stylesheet" type="text/css">
 		<script src="js/login.js" type="text/javascript"></script>
+		
+		<link href="css/screen-books.css" rel="stylesheet" type="text/css">
+		<script src="js/books.js" type="text/javascript"></script>
+		
+		<link href="css/screen-mae.css" rel="stylesheet" type="text/css">
+		<script src="js/mae.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<nav>
-			<h1>
-			</h1>
-		</nav>
+
 		
 		<div class = "contexts" >
 			
+			<!-- ////////////////////// LOGIN ////////////////////// -->
+			
 			<div id = "login" class = "screen" >
-				<nav>
-					<div class = "containter" >
+				<div class = "containter" >
+					<nav>
 						
-					</div>
-				</nav>
-				<img src = "imgs/login.png" >
-				
-				<input type="text" name="fname" value="name?" ></input>
-				<a href = "#"  class = "button" >LOGIN</a>
+							
+						
+					</nav>
+					<img src = "imgs/login.png" >
+					
+					<input type="text" name="fname" value="name?" ></input>
+					<a href = "#"  class = "button" >LOGIN</a>
+				</div>
 			</div>
 			
-			<div id = "book" class = "screen" >
-				
+			<!-- ////////////////////// BOOKS ////////////////////// -->
+			
+			<div id = "books" class = "screen" >
+				<div class = "container" >
+						<nav>
+							Select a book
+						</nav>
+						
+						<a href = "#mae" class = "book">
+							<img src = "imgs/bc1.jpg" >
+							Mae Jemison: Making Dreams Come True
+						</a>
+
+						<a href = "#twilight" class = "book">
+							<img src = "imgs/bc3.jpg" >
+							System Design
+						</a>
+						
+						<a href = "#twilight" class = "book">
+							<img src = "imgs/bc2.jpg" >
+							Twilight
+						</a>
+				</div>
 			</div>
+			
+			<!-- ////////////////////// TWILIGHT ////////////////////// -->
 
+			<div id = "twilight" class = "screen" >
+				<div class = "container" >
+						<nav>
+							Twilight Chapter 1
+						</nav>
+				</div>
+			</div>
+			
+			<!-- ////////////////////// Mae ////////////////////// -->
 
+			<div id = "mae" class = "screen" >
+				<div class = "container" >
+						<nav>
+							Mae Jemison: Making Dreams Come True
+						</nav>
+						
+						<div class="flexslider">
+						  <ul class="slides">
+							<li>
+								<p>
+									The space shuttle Endeavour launched from Kennedy Space Center on September 12, 1992.  This was the first time astronauts from the United States and Japan worked together.  But it was important for another reason as well.  On board was a special woman, Dr. Mae Carol Jemison.  She was the mission’s science specialist.  She was also the first African American woman to voyage into space. 
+								</p>
+								<p>
+									Mae was born in Decatur, Alabama, on October 17, 1956.  She grew up in Chicago, Illinois.  As early as kindergarten, Mae knew that she wanted to be a scientist.  Her parents encouraged Mae’s curiosity and supported her many interests.  As a child, Mae was an excellent student.  She enjoyed dancing and drawing too.  But space was the thing that interested Mae the most.  She read book after book about the universe and its stars and planets.						
+								</p>
+							</li>
+							<li>
+							  Cat in the hat
+							</li>
+							<li>
+							  World z
+							</li>
+						  </ul>
+						</div>
+						
+						<div class = "controls">
+						
+						</div>
+						
+				</div>
+			</div>
 		
 		</div>
 		

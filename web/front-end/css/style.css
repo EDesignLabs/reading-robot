@@ -3,3 +3,18 @@ body{
 	overflow-x: hidden;
 	background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
 }
+
+.container{
+	width: 960px;
+	margin: auto;
+}
+
+.screen{
+	display:none;
+}
+
+
+nav{
+    background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
+    min-height: 60px;
+}

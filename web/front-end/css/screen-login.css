@@ -39,10 +39,6 @@
 	font-family: 'Antic Didone', serif;
 }
 
-#login nav{
-    background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
-    min-height: 60px;
-}
 
 #login img{
 	position:relative;
