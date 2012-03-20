@@ -25,7 +25,7 @@
     //[webController reload];
     
 	[self.window makeKeyAndVisible];
-    webController.URL = @"http://www.google.com";
+    webController.URL = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.html"];
     
 
     return YES;

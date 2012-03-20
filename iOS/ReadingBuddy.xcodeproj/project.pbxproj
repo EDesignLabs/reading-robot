@@ -22,6 +22,18 @@
 		8F44908714FEB9D4004F90C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44906514FEB9D4004F90C8 /* Foundation.framework */; };
 		8F44908F14FEB9D4004F90C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F44908D14FEB9D4004F90C8 /* InfoPlist.strings */; };
 		8F44909214FEB9D4004F90C8 /* ReadingBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F44909114FEB9D4004F90C8 /* ReadingBuddyTests.m */; };
+		8F7C64A21515858D00F21198 /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C64A01515858D00F21198 /* RecordController.m */; };
+		8F7C64A31515858D00F21198 /* RecordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F7C64A11515858D00F21198 /* RecordController.xib */; };
+		8F7C64AA1515875200F21198 /* CircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C64A51515875200F21198 /* CircularBuffer.m */; };
+		8F7C64AB1515875200F21198 /* Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C64A71515875200F21198 /* Decoder.m */; };
+		8F7C64AC1515875200F21198 /* MP3Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C64A91515875200F21198 /* MP3Encoder.m */; };
+		8F7C64B0151588AD00F21198 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7C64AF151588AD00F21198 /* CoreAudio.framework */; };
+		8F7C64B2151588F300F21198 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7C64B1151588F300F21198 /* AudioToolbox.framework */; };
+		8F7C64B41515893300F21198 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7C64B31515893300F21198 /* AVFoundation.framework */; };
+		8F7C64B81518139800F21198 /* libmp3lame.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7C64B71518139800F21198 /* libmp3lame.dylib */; };
+		8F7C64BD15181A9D00F21198 /* FormatUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C64BC15181A9C00F21198 /* FormatUtil.m */; };
+		8F7C64C015181E8B00F21198 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 8F7C64BF15181E8B00F21198 /* sample.html */; };
+		8F7C64D51518228B00F21198 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7C64D41518228B00F21198 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +69,24 @@
 		8F44908E14FEB9D4004F90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8F44909014FEB9D4004F90C8 /* ReadingBuddyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadingBuddyTests.h; sourceTree = "<group>"; };
 		8F44909114FEB9D4004F90C8 /* ReadingBuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadingBuddyTests.m; sourceTree = "<group>"; };
+		8F7C649F1515858D00F21198 /* RecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
+		8F7C64A01515858D00F21198 /* RecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordController.m; sourceTree = "<group>"; };
+		8F7C64A11515858D00F21198 /* RecordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordController.xib; sourceTree = "<group>"; };
+		8F7C64A41515875200F21198 /* CircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularBuffer.h; sourceTree = "<group>"; };
+		8F7C64A51515875200F21198 /* CircularBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularBuffer.m; sourceTree = "<group>"; };
+		8F7C64A61515875200F21198 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		8F7C64A71515875200F21198 /* Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decoder.m; sourceTree = "<group>"; };
+		8F7C64A81515875200F21198 /* MP3Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP3Encoder.h; sourceTree = "<group>"; };
+		8F7C64A91515875200F21198 /* MP3Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP3Encoder.m; sourceTree = "<group>"; };
+		8F7C64AF151588AD00F21198 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		8F7C64B1151588F300F21198 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8F7C64B31515893300F21198 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8F7C64B71518139800F21198 /* libmp3lame.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmp3lame.dylib; sourceTree = "<group>"; };
+		8F7C64BB15181A9C00F21198 /* FormatUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatUtil.h; sourceTree = "<group>"; };
+		8F7C64BC15181A9C00F21198 /* FormatUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatUtil.m; sourceTree = "<group>"; };
+		8F7C64BF15181E8B00F21198 /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
+		8F7C64D3151821D900F21198 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = libmp3lame/lame.h; sourceTree = "<group>"; };
+		8F7C64D41518228B00F21198 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +97,11 @@
 				8F44906414FEB9D4004F90C8 /* UIKit.framework in Frameworks */,
 				8F44906614FEB9D4004F90C8 /* Foundation.framework in Frameworks */,
 				8F44906814FEB9D4004F90C8 /* CoreGraphics.framework in Frameworks */,
+				8F7C64B0151588AD00F21198 /* CoreAudio.framework in Frameworks */,
+				8F7C64B2151588F300F21198 /* AudioToolbox.framework in Frameworks */,
+				8F7C64B41515893300F21198 /* AVFoundation.framework in Frameworks */,
+				8F7C64B81518139800F21198 /* libmp3lame.dylib in Frameworks */,
+				8F7C64D51518228B00F21198 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +140,11 @@
 		8F44906214FEB9D4004F90C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F7C64D41518228B00F21198 /* Foundation.framework */,
+				8F7C64B71518139800F21198 /* libmp3lame.dylib */,
+				8F7C64B31515893300F21198 /* AVFoundation.framework */,
+				8F7C64B1151588F300F21198 /* AudioToolbox.framework */,
+				8F7C64AF151588AD00F21198 /* CoreAudio.framework */,
 				8F44906314FEB9D4004F90C8 /* UIKit.framework */,
 				8F44906514FEB9D4004F90C8 /* Foundation.framework */,
 				8F44906714FEB9D4004F90C8 /* CoreGraphics.framework */,
@@ -116,6 +156,7 @@
 		8F44906914FEB9D4004F90C8 /* ReadingBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				8F7C64BE15181DBE00F21198 /* resources */,
 				8F44907214FEB9D4004F90C8 /* AppDelegate.h */,
 				8F44907314FEB9D4004F90C8 /* AppDelegate.m */,
 				8F44907514FEB9D4004F90C8 /* MainStoryboard_iPhone.storyboard */,
@@ -124,6 +165,17 @@
 				8F0A82E4150BF6FA0048058C /* GenericWebView.m */,
 				8F44907B14FEB9D4004F90C8 /* ViewController.h */,
 				8F44907C14FEB9D4004F90C8 /* ViewController.m */,
+				8F7C64A41515875200F21198 /* CircularBuffer.h */,
+				8F7C64A51515875200F21198 /* CircularBuffer.m */,
+				8F7C64A61515875200F21198 /* Decoder.h */,
+				8F7C64A71515875200F21198 /* Decoder.m */,
+				8F7C64A81515875200F21198 /* MP3Encoder.h */,
+				8F7C64A91515875200F21198 /* MP3Encoder.m */,
+				8F7C649F1515858D00F21198 /* RecordController.h */,
+				8F7C64A01515858D00F21198 /* RecordController.m */,
+				8F7C64A11515858D00F21198 /* RecordController.xib */,
+				8F7C64BB15181A9C00F21198 /* FormatUtil.h */,
+				8F7C64BC15181A9C00F21198 /* FormatUtil.m */,
 				8F44906A14FEB9D4004F90C8 /* Supporting Files */,
 			);
 			path = ReadingBuddy;
@@ -132,6 +184,7 @@
 		8F44906A14FEB9D4004F90C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8F7C64D3151821D900F21198 /* lame.h */,
 				8F44906B14FEB9D4004F90C8 /* ReadingBuddy-Info.plist */,
 				8F44906C14FEB9D4004F90C8 /* InfoPlist.strings */,
 				8F44906F14FEB9D4004F90C8 /* main.m */,
@@ -157,6 +210,14 @@
 				8F44908D14FEB9D4004F90C8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F7C64BE15181DBE00F21198 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F7C64BF15181E8B00F21198 /* sample.html */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +294,8 @@
 				8F44906E14FEB9D4004F90C8 /* InfoPlist.strings in Resources */,
 				8F44907714FEB9D4004F90C8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				8F44907A14FEB9D4004F90C8 /* MainStoryboard_iPad.storyboard in Resources */,
+				8F7C64A31515858D00F21198 /* RecordController.xib in Resources */,
+				8F7C64C015181E8B00F21198 /* sample.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +334,11 @@
 				8F44907414FEB9D4004F90C8 /* AppDelegate.m in Sources */,
 				8F44907D14FEB9D4004F90C8 /* ViewController.m in Sources */,
 				8F0A82E5150BF6FA0048058C /* GenericWebView.m in Sources */,
+				8F7C64A21515858D00F21198 /* RecordController.m in Sources */,
+				8F7C64AA1515875200F21198 /* CircularBuffer.m in Sources */,
+				8F7C64AB1515875200F21198 /* Decoder.m in Sources */,
+				8F7C64AC1515875200F21198 /* MP3Encoder.m in Sources */,
+				8F7C64BD15181A9D00F21198 /* FormatUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,10 +446,26 @@
 		8F44909614FEB9D4004F90C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Scott Lindenbaum (H34FR68ZEJ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadingBuddy/ReadingBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ReadingBuddy/ReadingBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E739031E-37E8-496D-BB84-9E96A4D8CE99";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -390,9 +474,23 @@
 		8F44909714FEB9D4004F90C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadingBuddy/ReadingBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ReadingBuddy/ReadingBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;

@@ -7,11 +7,14 @@
 //
 
 #import "GenericWebView.h"
+#import "RecordController.h"
 
 @implementation GenericWebView
 
 @synthesize webView;
 @synthesize URL;
+
+static const NSString *recSuffix = @"REC";
 
 - (id) initWithPageURL:(NSString *) url
 {
@@ -30,6 +33,36 @@
     NSLog(@"[generic web view] - web view did finish load");
 }
 
+/*- (void) loadPage:(NSString *)pagePath
+{
+	NSLog(@"[gtk web view controller] - load page - page path is: %@", pagePath);
+	NSData *textFileData = [NSData dataWithContentsOfFile:pagePath];
+	
+	if(textFileData != nil) {
+		NSLog(@"loading web view with page file: %@", pagePath);
+		[webView loadData:textFileData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:
+		 [NSURL URLWithString: [GTKAppDelegate getFormattedURLBaseForPath:[page stringByDeletingLastPathComponent] ] ]];
+		
+	}
+	else {
+		NSLog(@"file data is nil for file name %@", pagePath);	
+		NSString *chapterText = @"<html><head><title></title></head><body>ERROR: The file for this page could not be found.</p></body></html>";
+		
+		[myWebView loadHTMLString:chapterText baseURL:[NSURL URLWithString:[GTKAppDelegate getAppURLBase]]]; 
+	}		 
+}*/
+
++ (NSString *) getFormattedURLBaseForPath: (NSString *) rPath
+{
+	NSString *URLBase = [rPath stringByReplacingOccurrencesOfString:@"/" withString:@"//"];
+	URLBase = [URLBase stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+	URLBase = [NSString stringWithFormat:@"file:/%@//",URLBase];
+	
+	return URLBase;	
+	
+}
+
+
 - (void) reload 
 {
     NSLog(@"[generic web view] - reload - url is: %@", self.URL);
@@ -38,15 +71,48 @@
         return;
     }
     
-    NSURL* url = [NSURL URLWithString:self.URL];
-	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-	[self.webView loadRequest:requestObj];
+    if ([self.URL hasPrefix:@"http:"]) {
+        NSURL* url = [NSURL URLWithString:self.URL];
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:requestObj];
+    }
+    else {
+        NSData *textFileData = [NSData dataWithContentsOfFile:self.URL];
+        
+        if(textFileData != nil) {
+            NSLog(@"loading web view with page file: %@", self.URL);
+            [webView loadData:textFileData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:
+             [NSURL URLWithString: [GenericWebView getFormattedURLBaseForPath:[self.URL stringByDeletingLastPathComponent] ] ]];
+            
+        }
+    }
 }
 
 - (void) setURL:(NSString *)URLVar
 {
     URL = URLVar;
     [self reload];
+}
+
+- (void) doRecord
+{
+    RecordController * recordController = [[RecordController alloc] initWithNibName:nil bundle:nil];
+    recordController.parentController = self;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recordController];
+    
+    [self presentModalViewController:nav animated:YES];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"[generic web view] - should start load with request - request url: %@", request.URL); 
+    
+    if ([[request.URL absoluteString] hasSuffix:recSuffix]) {
+        [self doRecord];
+    }
+    
+    return YES;
 }
 
 - (void) viewDidLoad {
