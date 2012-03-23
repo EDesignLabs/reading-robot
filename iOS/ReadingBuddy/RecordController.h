@@ -73,6 +73,8 @@ typedef enum
 // setup audio session
 - (void)setupAudioSession;
 
+- (IBAction) hide;
+
 @property (nonatomic,retain) IBOutlet UILabel* hintLabel;
 @property (nonatomic,retain) IBOutlet UIButton* recordButton;
 @property (nonatomic,retain) IBOutlet UIButton* recordingLengthButton;

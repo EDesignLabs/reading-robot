@@ -85,8 +85,8 @@
 		8F7C64BB15181A9C00F21198 /* FormatUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatUtil.h; sourceTree = "<group>"; };
 		8F7C64BC15181A9C00F21198 /* FormatUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatUtil.m; sourceTree = "<group>"; };
 		8F7C64BF15181E8B00F21198 /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
-		8F7C64D3151821D900F21198 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = libmp3lame/lame.h; sourceTree = "<group>"; };
 		8F7C64D41518228B00F21198 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8FCA9A4615192EBB00FD1C6F /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = libmp3lame/lame.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		8F44906A14FEB9D4004F90C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8F7C64D3151821D900F21198 /* lame.h */,
+				8FCA9A4615192EBB00FD1C6F /* lame.h */,
 				8F44906B14FEB9D4004F90C8 /* ReadingBuddy-Info.plist */,
 				8F44906C14FEB9D4004F90C8 /* InfoPlist.strings */,
 				8F44906F14FEB9D4004F90C8 /* main.m */,

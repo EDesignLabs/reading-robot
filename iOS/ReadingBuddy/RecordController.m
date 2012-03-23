@@ -348,6 +348,11 @@ static long const MIN_RECORDING_LENGTH = 10;
 	}
 }
 
+- (IBAction) hide
+{
+    [self.parentController hideRecordPane];
+}
+
 - (void) hideModal
 {
     [self.parentController dismissModalViewControllerAnimated:YES];

@@ -13,6 +13,7 @@
 
 @synthesize webView;
 @synthesize URL;
+@synthesize recordController;
 
 static const NSString *recSuffix = @"REC";
 
@@ -94,14 +95,36 @@ static const NSString *recSuffix = @"REC";
     [self reload];
 }
 
+- (IBAction) hideRecordPane
+{
+    [recordController.view removeFromSuperview];
+    
+    CGRect webFrame = webView.frame;
+    webFrame.origin.y -= recordController.view.frame.size.height;
+    webView.frame = webFrame;
+}
+
 - (void) doRecord
 {
-    RecordController * recordController = [[RecordController alloc] initWithNibName:nil bundle:nil];
-    recordController.parentController = self;
+    if (!recordController) {
+        recordController = [[RecordController alloc] initWithNibName:nil bundle:nil];
+        recordController.parentController = self;
+    }
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recordController];
+    if ([recordController.view superview]) {
+        return;
+    }
     
-    [self presentModalViewController:nav animated:YES];
+    CGRect webFrame = webView.frame;
+    webFrame.origin.y += recordController.view.frame.size.height;
+    webView.frame = webFrame;
+    
+    [self.view addSubview:recordController.view];
+    recordController.view.frame = CGRectMake(0, 0, recordController.view.frame.size.width, recordController.view.frame.size.height);
+    
+    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recordController];
+    
+    //[self presentModalViewController:nav animated:YES];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType

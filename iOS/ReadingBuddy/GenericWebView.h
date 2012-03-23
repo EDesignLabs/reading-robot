@@ -9,15 +9,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class RecordController;
 
 @interface GenericWebView : UIViewController <UIWebViewDelegate> {
 	NSString *URL;
+    RecordController *recordController;
 }
 
 @property (nonatomic, retain) NSString *URL;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) RecordController *recordController;
 
 - (id) initWithPageURL:(NSString *) url;
 - (void) reload;
+- (IBAction) hideRecordPane;
 
 @end
