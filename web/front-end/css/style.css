@@ -18,3 +18,24 @@ nav{
     background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
     min-height: 60px;
 }
+
+.monster-callout{
+    bottom: 50px;
+    overflow: visible;
+    position: absolute;
+    right: 50px;
+	opacity: 0;
+}
+
+.callout{
+
+}
+
+.monster-callout .text{
+    background: url("../imgs/callout.png") no-repeat scroll right bottom #FFFFFF;
+    left: -25px;
+    padding-bottom: 50px;
+    position: relative;
+    top: 0;
+	width: 165px;
+}

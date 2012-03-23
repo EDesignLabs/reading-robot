@@ -1,0 +1,61 @@
+﻿#mae nav{
+    font-family: 'Antic Didone',serif;
+    font-size: 32px;
+    padding-top: 13px;
+}
+
+.flexslider{
+    width: 600px;
+	overflow:hidden;
+
+    display: block;
+
+    margin-bottom: 15px;
+    overflow: hidden;
+    
+}
+
+#mae li{
+	font-family: 'Ubuntu', sans-serif;
+	font-size:17px;
+	line-height: 30px;
+}
+
+#mae li p{
+	width: 600px
+	
+}
+
+
+
+.flex-control-nav li{
+    float: left;
+    width: 6%;
+
+}
+
+.flex-control-nav .active{
+    color:#eb7331;
+
+}
+
+.flex-direction-nav{
+	width: 60%;
+}
+
+.flex-control-nav a{
+    cursor:pointer;
+	
+}
+
+.flex-direction-nav .prev{
+	float:left;
+    text-decoration:none;
+	color: black;
+}
+
+.flex-direction-nav .next{
+	float:right;
+    text-decoration:none;
+	color: black;
+}

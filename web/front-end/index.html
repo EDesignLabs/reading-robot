@@ -3,11 +3,13 @@
 	<head>
 		<link href="css/reset.css" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/wowwindow.css" rel="stylesheet" type="text/css">
 		
 		<link href='http://fonts.googleapis.com/css?family=Antic+Didone' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 		<script src="js/jquery.flexslider.js" type="text/javascript"></script>
 		
 		<script src="js/global.js" type="text/javascript"></script>
@@ -81,6 +83,16 @@
 
 			<div id = "mae" class = "screen" >
 				<div class = "container" >
+				
+						<div class = "monster-callout" >
+							<div class = "text" >
+								sadfasfsafsafasfdadsf
+							</div>
+						
+							<img class = "monster"  src="imgs/m.png" />
+							
+						</div>
+				
 						<nav>
 							Mae Jemison: Making Dreams Come True
 						</nav>
@@ -92,11 +104,11 @@
 									The space shuttle Endeavour launched from Kennedy Space Center on September 12, 1992.  This was the first time astronauts from the United States and Japan worked together.  But it was important for another reason as well.  On board was a special woman, Dr. Mae Carol Jemison.  She was the mission’s science specialist.  She was also the first African American woman to voyage into space. 
 								</p>
 								<p>
-									Mae was born in Decatur, Alabama, on October 17, 1956.  She grew up in Chicago, Illinois.  As early as kindergarten, Mae knew that she wanted to be a scientist.  Her parents encouraged Mae’s curiosity and supported her many interests.  As a child, Mae was an excellent student.  She enjoyed dancing and drawing too.  But space was the thing that interested Mae the most.  She read book after book about the universe and its stars and planets.						
+									Mae was born in <a class = "callout" href = "#example1" ><img src = "imgs/eye.png" ></a> Decatur, Alabama, on October 17, 1956.  She grew up in <a class = "callout" href = "#example1" ><img src = "imgs/eye.png" ></a>Chicago, Illinois.  As early as kindergarten, Mae knew that she wanted to be a scientist.  Her parents encouraged Mae’s curiosity and supported her many interests.  As a child, Mae was an excellent student.  She enjoyed dancing and drawing too.  But space was the thing that interested Mae the most.  She read book after book about the universe and its stars and planets.						
 								</p>
 							</li>
 							<li>
-							  Cat in the hat
+							  Cat in the hat<a class = "callout" href = "#example1" ><img src = "imgs/eye.png" ></a>
 							</li>
 							<li>
 							  World z
@@ -112,6 +124,12 @@
 			</div>
 		
 		</div>
+		
+		<div style = "display:none" id = "example1" >
+			This is a test. <a href = "#"> a link</a>
+		</div>
+		
+
 		
 	</body>
 </html>

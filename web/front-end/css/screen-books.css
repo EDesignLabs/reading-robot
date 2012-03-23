@@ -1,0 +1,32 @@
+﻿#books nav{
+    font-family: 'Antic Didone',serif;
+    font-size: 32px;
+    padding-top: 13px;
+}
+
+#books .book{
+    color: black;
+    display: block;
+    float: right;
+	font-family: 'Ubuntu', sans-serif;
+    margin-left: 15px;
+    max-width: 185px;
+    min-height: 30px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+#books .book img{
+    border: 1px solid #EEEEEE;
+    border-radius: 5px 0 2px 7px;
+    box-shadow: 0 0 2px #666666;
+    display: block;
+
+    margin-bottom: 15px;
+    overflow: hidden;
+    
+    top: -25px;
+    max-width: 175px;
+}
+
