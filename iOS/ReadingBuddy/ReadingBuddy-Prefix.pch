@@ -12,3 +12,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define BASE_SERVICE_URL @"http://aphes.com/dtc/request.php/"
+#define CREATE_POST_URL [NSString stringWithFormat:@"%@?query=uploadData", BASE_SERVICE_URL]

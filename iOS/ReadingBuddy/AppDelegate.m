@@ -17,6 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
     UIViewController *controller = self.window.rootViewController;
 
     NSLog(@"[app delegate] - application did finish launching - top controller is: %@", controller);

@@ -4,6 +4,10 @@
 
 #import "RecordController.h"
 #import "FormatUtil.h"
+#import "MP3Encoder.h"
+#import "CreatePostRequest.h"
+
+static const int DefaultPostSubtypeID = 1;
 
 @interface RecordController ()
 
@@ -34,6 +38,14 @@ static long const MIN_RECORDING_LENGTH = 10;
 @synthesize recordedTmpFile;
 @synthesize parentController;
 
+
+- (RecordController *) initWithNibName:(NSString *) nibNameOrNil bundle:(NSBundle *)nibBundle
+{
+	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundle])) {
+        dispatchQueue = dispatch_queue_create("broadcastr.uploadqueue", NULL);
+	}
+	return self;
+}
 
 //Adjusts icons, visibility, etc of the buttons according to the passed state
 - (void)adjustButtons:(RecordingState)state_ {
@@ -333,12 +345,64 @@ static long const MIN_RECORDING_LENGTH = 10;
 }
 
 - (IBAction)acceptRecording:(id)sender {
-	NSString *audioLocation = [self.recordedTmpFile path];
+    
+    NSLog(@"[record controller] - accept recording");
+    [self doConversion];
+	//NSString *audioLocation = [self.recordedTmpFile path];
     
 //    recordInfo.audioPath = audioLocation;
 //    recordInfo.audioItem.duration = recordingLength * 1000;
     
 }
+
+//Utility method
+-(NSString*) getMP3Location:(NSString*)rawFileLocation {
+	static NSString *MP3_SUFFIX = @".mp3";
+    
+    return [[rawFileLocation stringByDeletingPathExtension] stringByAppendingString:MP3_SUFFIX];
+}
+
+- (void) doConversion
+{
+    dispatch_async(dispatchQueue, ^{
+        NSLog(@"[record controller] - do conversion");
+        NSString *rawFilename = [self.recordedTmpFile path];
+        NSString *mp3Filename = [self getMP3Location:rawFilename];
+        
+        MP3Encoder *mp3Encoder = [[MP3Encoder alloc] init];
+        
+        
+        [mp3Encoder encodeToFile:rawFilename :mp3Filename];
+        
+        [mp3Encoder release];
+        NSLog(@"[record controller] - finished conversion"); 
+        
+        [self sendPostData:mp3Filename];
+    });
+    
+}
+
+
+- (void)sendPostData:(NSString *) filePath
+{
+    NSLog(@"[record controller] - send post data");
+    createPostRequest = [[CreatePostRequest alloc] initWithMediaType:(int)[self mediaType]
+                                                             subType:DefaultPostSubtypeID
+                                                               title:@"audioItemTitle"
+                                                         description:@"audioItemDescr"
+                                                                tags:@"audioItemTags"];
+    if (filePath) {
+        [createPostRequest setAudioDataWithPath:filePath withFileName:[filePath lastPathComponent] andContentType:@"audio"];
+    }
+    createPostRequest.delegate = self;
+    [createPostRequest start];
+}
+
+- (kMediaType)mediaType
+{
+    return kMediaTypeAudio;
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated {
 	if (state == SHOULD_PAUSE_PLAYING) {

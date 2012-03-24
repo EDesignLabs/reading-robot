@@ -9,6 +9,7 @@
 #import <AudioUnit/AudioUnit.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+@class CreatePostRequest;
 
 // Different states of the record button.
 // Define which should be the next state of the record button after being pressed.
@@ -43,10 +44,20 @@ typedef enum
 	NSTimer* progressUpdateTimer;
 	float recordingLength;
 	NSURL* recordedTmpFile;
-		
+    
+	CreatePostRequest *createPostRequest;
+    
+    dispatch_queue_t dispatchQueue;
+    dispatch_group_t fileUploadGroup;
+        
 	@private
 		RecordingState state;
 		AVAudioPlayer* avPlayer;
+    
+        pthread_mutex_t uploadGroupMutex;
+        pthread_cond_t uploadGroupCond;
+    
+
 }
 
 // Invoked when record button is pressed nevertheless what is the state of the record button.

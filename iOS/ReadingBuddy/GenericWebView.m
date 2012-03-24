@@ -140,6 +140,8 @@ static const NSString *recSuffix = @"REC";
 
 - (void) viewDidLoad {
     NSLog(@"[generic web view] - view did load - webview is : %@", self.webView);
+    
+    
     //[self reload];
     
 //    UIBarButtonItem *backButton = [UIUtil makeBarStandardBackButtonItem:self :@selector(goBack)];
