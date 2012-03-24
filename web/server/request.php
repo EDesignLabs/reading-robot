@@ -45,11 +45,11 @@ function dataUpload()
 	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) 
 	{
-	  	echo "file: " . basename( $_FILES['uploadedfile']['name']);
 		$sql = 'INSERT INTO rb_content (name, pid, uid) VALUES ("'.$_FILES['uploadedfile']['name'].'","'.$filesize.'","'.$extension.'","genre","'.$fileurl.'", "1")';
 		$query = mysql_query($sql);
+		echo 1;
 	 } else{
-	  echo "null";
+	  echo 0;
 	 }
 }
 ?>

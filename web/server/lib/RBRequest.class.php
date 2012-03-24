@@ -19,6 +19,7 @@ class RBRequest
 
 	public function getUser ( $user ) 
 	{
+		if (strlen($user) == 0 || !$user) return 0;
 		$sql      = 'SELECT * FROM rb_users WHERE username="'.$user.'"';
 		$response = mysql_query($sql);		
 		if ( mysql_num_rows($response) > 0 ) 
@@ -29,6 +30,7 @@ class RBRequest
 	
 	public function checkPassword( $user, $password)
 	{
+		if (strlen($user) == 0 || !$user || strlen($password) == 0 || !$password) return 0;
 		$sql      = 'SELECT password FROM rb_users WHERE username="'.$user.'"';
 		$response = mysql_query($sql);		
 		$pass = mysql_fetch_assoc($response);
@@ -41,6 +43,7 @@ class RBRequest
 	public function createUser( $user , $password )
 	{
 		//TODO: only allow for uniuq "user" entries
+		if (strlen($user) == 0 || !$user || strlen($password) == 0 || !$password) return 0;
 		$hash = md5($user);
 		$sql = "INSERT INTO rb_users (username, password, uid) VALUES ('$user','$password','$hash')";
 		$response = mysql_query($sql);
