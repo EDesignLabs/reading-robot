@@ -64,7 +64,7 @@ static long const MIN_RECORDING_LENGTH = 10;
             reRecordButton.hidden = NO;
             acceptButton.hidden = NO;
             
-            hintLabel.text = @"Record your thoughts";
+            //hintLabel.text = @"Record your thoughts";
             
             break;
         case SHOULD_STOP_RECORDING:
@@ -90,7 +90,7 @@ static long const MIN_RECORDING_LENGTH = 10;
             reRecordButton.hidden = YES;
             acceptButton.hidden = YES;
             
-            hintLabel.text = NSLocalizedString(@"recordStoryHint", @"");
+           // hintLabel.text = NSLocalizedString(@"recordStoryHint", @"");
             
             break;
         default:
@@ -257,10 +257,10 @@ static long const MIN_RECORDING_LENGTH = 10;
 - (void)stopRecording {
 	[recorder stop];
     
-	if (recordingLength < MIN_RECORDING_LENGTH) {
+/*	if (recordingLength < MIN_RECORDING_LENGTH) {
         [self reRecordButtonPressed];
         [self showMinLengthAlert];
-    }
+    }*/
 }
 
 -(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
@@ -347,6 +347,7 @@ static long const MIN_RECORDING_LENGTH = 10;
 - (IBAction)acceptRecording:(id)sender {
     
     NSLog(@"[record controller] - accept recording");
+    [self hide];
     [self doConversion];
 	//NSString *audioLocation = [self.recordedTmpFile path];
     
