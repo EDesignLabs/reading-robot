@@ -6,28 +6,27 @@ require_once("lib/RBRequest.class.php");
 $query = $_GET['query'];
 $request = new RBRequest();
 
-
 switch ( $query ) 
 {
 	case "getUser":
-		$username = $_GET["user"];
+		$username = $_POST["user"];
 		$query    = $request->getUser($username);	
 		echo $query;
 		break;
 	case "createUser":
-		$username = $_GET["user"];
-		$password = $_GET["password"];
+		$username = $_POST["user"];
+		$password = $_POST["password"];
 		$query    = $request->createUser($username, $password);	
 		echo $query;
 		break;
 	case "checkPassword":
-		$username = $_GET["user"];
-		$password = $_GET["password"];
+		$username = $_POST["user"];
+		$password = $_POST["password"];
 		$query = $request->checkPassword( $username, $password);	
 		echo $query;
 		break;	
 	case "uploadData":
-		
+		dataUpload();
 		break;
 	default:
 		echo "give me something to do";
