@@ -41,7 +41,7 @@ function dataUpload()
 	$type = $_POST['type'];		
 	$fileurl 	 = rawurlencode(basename( $_FILES['uploadedfile']['name']));
 	$extension   = substr(strrchr(basename( $_FILES['uploadedfile']['name']), '.'), 1);
-	$target_path = "files/";
+	$target_path = "uploads/";
 	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) 
 	{
