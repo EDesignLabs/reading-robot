@@ -1,6 +1,6 @@
 <?php
-ini_set('display_errors',1);
-error_reporting(E_ALL|E_STRICT);
+//ini_set('display_errors',1);
+//error_reporting(E_ALL|E_STRICT);
 //api root touchpoint
 require_once("lib/RBRequest.class.php");
 $query = $_GET['query'];
@@ -8,11 +8,22 @@ $request = new RBRequest();
 
 switch ( $query ) 
 {
-	case "getUser":
-		$username = $_POST["user"];
-		$query    = $request->getUser($username);	
+	case "createPrompt":
+		$username = $_POST["user"];		
+		$pid	  = $_POST["pid"];		
+		$data 	  = $_POST["data"];				
+		$query    = $request->createPrompt($username, $pid, $data);	
 		echo $query;
 		break;
+	case "getUserPrompts":
+		$username = $_POST["user"];
+		$query    = $request->getUserPrompts($username);	
+		echo $query;
+		break;
+	case "getPrompts":
+		$query    = $request->getPrompts();	
+		echo $query;
+		break;		
 	case "createUser":
 		$username = $_POST["user"];
 		$password = $_POST["password"];
@@ -35,9 +46,9 @@ switch ( $query )
 
 function dataUpload()
 {
-	$name = $_POST['name'];
-	$uid = "null";//$_POST['uid']";
-	$pid = $_POST['pid'];	
+	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension
+	$uid = "null";
+	$pid = "null";
 	$type = $_POST['type'];		
 	$fileurl 	 = rawurlencode(basename( $_FILES['uploadedfile']['name']));
 	$extension   = substr(strrchr(basename( $_FILES['uploadedfile']['name']), '.'), 1);

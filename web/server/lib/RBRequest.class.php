@@ -10,6 +10,60 @@ class RBRequest
 
 	}
 
+	public function createPrompt( $user, $pid, $data)
+	{
+		$sql = "INSERT INTO rb_prompts (user, pid, data) VALUES ('$user','$pid','$data')";
+		$response = mysql_query($sql);
+		if ( $response )
+			return 1;
+		else 
+			return 0;
+	}
+	
+	public function getUserPrompts( $user)
+	{
+		$sql = 'SELECT user, pid, data FROM rb_prompts WHERE user="'.$user.'"';
+		$response = mysql_query($sql);
+		$json_data = array();
+		$aPrompt   = array();
+		while ($row = mysql_fetch_assoc($response))
+		{
+		  	$json_element = array(
+			"user"=> $row[user] ,
+			"pid"=> $row[pid],
+			"data"=> $row[data]
+		 	);
+			array_push($aPrompt,$json_element);
+		}
+		$json_data[$user] = $aPrompt;
+
+		$json_output = json_encode($json_data);
+		return $json_output;
+
+	}
+	
+	public function getPrompts()
+	{
+		$sql = 'SELECT user, pid, data FROM rb_prompts';
+		$response = mysql_query($sql);
+		$json_data = array();
+		$aPrompt   = array();
+		while ($row = mysql_fetch_assoc($response))
+		{
+		  	$json_element = array(
+			"user"=> $row[user] ,
+			"pid"=> $row[pid],
+			"data"=> $row[data]
+		 	);
+			array_push($aPrompt,$json_element);
+		}
+		$json_data["prompts"] = $aPrompt;
+
+		$json_output = json_encode($json_data);
+		return $json_output;
+		
+	}
+	
 	public function getEntriesForUser( $user )
 	{
 		$sql      = 'SELECT entries FROM users WHERE user="'.$user.'"';
@@ -51,7 +105,6 @@ class RBRequest
 			return 1;
 		else 
 			return 0;
-
 	}
 
 }
