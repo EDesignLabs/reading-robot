@@ -25,7 +25,7 @@
     //[webController reload];
     
 	[self.window makeKeyAndVisible];
-    webController.URL = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.html"];
+    webController.URL = @"http://aphes.com/dtc/"; //[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.html"];
     
 
     return YES;

@@ -148,4 +148,15 @@ static const NSString *recSuffix = @"REC";
 }
 
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+
 @end
