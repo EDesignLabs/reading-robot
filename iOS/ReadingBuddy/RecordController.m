@@ -37,7 +37,11 @@ static long const MIN_RECORDING_LENGTH = 10;
 @synthesize state;
 @synthesize recordedTmpFile;
 @synthesize parentController;
-
+@synthesize progressLabel;
+@synthesize progressView;
+@synthesize activity;
+@synthesize retryButton;
+@synthesize hideButton;
 
 - (RecordController *) initWithNibName:(NSString *) nibNameOrNil bundle:(NSBundle *)nibBundle
 {
@@ -213,6 +217,7 @@ static long const MIN_RECORDING_LENGTH = 10;
 			[self setupAudioSession];
 		}
 		
+        self.hideButton.hidden = YES;
 		self.state = SHOULD_STOP_RECORDING;
 
 #ifdef ADHOC
@@ -289,6 +294,7 @@ static long const MIN_RECORDING_LENGTH = 10;
 
 - (IBAction)reRecordButtonPressed {
 	self.state = SHOULD_START_RECORDING;
+    self.hideButton.hidden = NO;
     
 	if (avPlayer != nil) {
 		[avPlayer stop];
@@ -344,10 +350,22 @@ static long const MIN_RECORDING_LENGTH = 10;
 	}
 }
 
+- (void) showProgressView
+{
+    self.retryButton.hidden = YES;
+    self.activity.hidden = NO;
+    [self.activity startAnimating];
+    self.progressLabel.text = @"Converting...";
+    
+    [self.view addSubview:self.progressView];
+}
+
 - (IBAction)acceptRecording:(id)sender {
     
     NSLog(@"[record controller] - accept recording");
-    [self hide];
+    //[self hide];
+    [self showProgressView];
+    
     [self doConversion];
 	//NSString *audioLocation = [self.recordedTmpFile path];
     
@@ -377,12 +395,27 @@ static long const MIN_RECORDING_LENGTH = 10;
         
         [mp3Encoder release];
         NSLog(@"[record controller] - finished conversion"); 
+        self.progressLabel.text = @"Uploading...";
         
         [self sendPostData:mp3Filename];
     });
     
 }
 
+- (void) requestSucceeded:(NSString *) responseString
+{
+    self.progressLabel.text = @"All Done! Hurray!";
+    
+    [self performSelector:@selector(hide) withObject:nil afterDelay:1.5];
+}
+
+- (void) requestDidFail
+{
+    self.activity.hidden = YES;
+    self.progressLabel.text = @"Oops. Something went wrong :(. Please try again.";    
+    
+    [self performSelector:@selector(allowRetryAfterFail) withObject:nil afterDelay:1.5];
+}
 
 - (void)sendPostData:(NSString *) filePath
 {
@@ -413,8 +446,25 @@ static long const MIN_RECORDING_LENGTH = 10;
 	}
 }
 
+- (void) hideProgressView
+{
+    [self.progressView removeFromSuperview];
+}
+
+- (void) allowRetryAfterFail
+{
+    self.retryButton.hidden = NO;
+}
+
+- (IBAction) retryAfterFail:(id)sender
+{
+    [self hideProgressView];
+    [self reRecordButtonPressed];
+}
+
 - (IBAction) hide
 {
+    [self.progressView removeFromSuperview];
     [self.parentController hideRecordPane];
 }
 

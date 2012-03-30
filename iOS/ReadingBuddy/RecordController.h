@@ -85,12 +85,19 @@ typedef enum
 - (void)setupAudioSession;
 
 - (IBAction) hide;
+- (IBAction) retryAfterFail:(id)sender;
 
 @property (nonatomic,retain) IBOutlet UILabel* hintLabel;
 @property (nonatomic,retain) IBOutlet UIButton* recordButton;
 @property (nonatomic,retain) IBOutlet UIButton* recordingLengthButton;
 @property (nonatomic,retain) IBOutlet UIButton* reRecordButton;
 @property (nonatomic,retain) IBOutlet UIButton* acceptButton;
+@property (nonatomic,retain) IBOutlet UIView *progressView;
+@property (nonatomic,retain) IBOutlet UILabel* progressLabel;
+@property (nonatomic,retain) IBOutlet UIButton* retryButton;
+@property (nonatomic,retain) IBOutlet UIActivityIndicatorView *activity;
+@property (nonatomic,retain) IBOutlet UIButton* hideButton;
+
 @property (nonatomic,retain) NSURL *recordedTmpFile;
 @property (nonatomic,retain) UIViewController * parentController;
 

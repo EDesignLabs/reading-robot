@@ -100,7 +100,7 @@ static const NSString *recSuffix = @"REC";
     [recordController.view removeFromSuperview];
     
     CGRect webFrame = webView.frame;
-    webFrame.origin.y -= recordController.view.frame.size.height;
+    webFrame.size.height += recordController.view.frame.size.height;
     webView.frame = webFrame;
 }
 
@@ -116,11 +116,11 @@ static const NSString *recSuffix = @"REC";
     }
     
     CGRect webFrame = webView.frame;
-    webFrame.origin.y += recordController.view.frame.size.height;
+    webFrame.size.height -= recordController.view.frame.size.height;
     webView.frame = webFrame;
     
     [self.view addSubview:recordController.view];
-    recordController.view.frame = CGRectMake(0, 0, recordController.view.frame.size.width, recordController.view.frame.size.height);
+    recordController.view.frame = CGRectMake(0, webFrame.size.height, recordController.view.frame.size.width, recordController.view.frame.size.height);
     
     //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recordController];
     
@@ -133,6 +133,7 @@ static const NSString *recSuffix = @"REC";
     
     if ([[request.URL absoluteString] hasSuffix:recSuffix]) {
         [self doRecord];
+        //return NO;
     }
     
     return YES;
@@ -156,7 +157,8 @@ static const NSString *recSuffix = @"REC";
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
-        return YES;
+        //only landscape mode on the ipad
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown && interfaceOrientation != UIInterfaceOrientationPortrait);
     }
 }
 

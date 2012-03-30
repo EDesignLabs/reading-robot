@@ -72,19 +72,13 @@
     NSLog(@"[create post request] - request succeeded");
     NSLog(@"%s %@", _cmd, [request responseString]);
 
-/*    NSArray *id_components = [[request responseString] componentsSeparatedByString:@"<result>"];
-  if ([id_components count] > 1) {
-    [delegate createPostRequestDidSucceedWithID:[[id_components objectAtIndex:1] intValue]];
-  }
-  else {
-    [self requestFailed:request];
-  }*/
+    [delegate requestSucceeded:[request responseString]];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     NSLog(@"[create post request] - request failed");
-  //[delegate createPostRequestDidFail];
+    [delegate requestDidFail];
 }
 
 - (NSString *)requestDescription
