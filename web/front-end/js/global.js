@@ -12,13 +12,23 @@ function swipeTo(startScreen, endScreen){
 	
 }
 
-function monsterSay(text, type, container){
 
+//disable link
+$(function(){
 
-}
-
-
-var response = {
+	$('a.record').click(function(){
 	
+		return false;
+	}
+	
+	)
 
+
+
+});
+
+
+function recordResultURL (url){
+	alert(url);
+	
 }

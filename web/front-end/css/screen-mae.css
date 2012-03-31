@@ -12,12 +12,14 @@
 
     margin-bottom: 15px;
     overflow: hidden;
+	
+	min-height: 555px;
     
 }
 
 #mae li{
 	font-family: 'Ubuntu', sans-serif;
-	font-size:17px;
+	font-size:19px;
 	line-height: 30px;
 }
 
