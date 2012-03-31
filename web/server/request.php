@@ -23,7 +23,12 @@ switch ( $query )
 	case "getPrompts":
 		$query    = $request->getPrompts();	
 		echo $query;
-		break;		
+		break;	
+	case "getUser":
+		$username = $_POST["user"];
+		$query    = $request->getUser($username);	
+		echo $query;
+		break;	
 	case "createUser":
 		$username = $_POST["user"];
 		$password = $_POST["password"];
