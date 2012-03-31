@@ -12,25 +12,25 @@
 			animationLoop: false
 		});
 		
+		//INTIALIZE QUESTION TYPES
+		
+		var response = "";
+		
 		$(".callout").click(function () {
 			$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
-			var scrollbar  = $(link).find('.scrollbar');
 			
-			setTimeout(function(){
-				var element = '';
-				element +='<div class = "item right" >';
-				element +='	<div class = "icon" >';
-				element +='		<img src="imgs/m-chat.png" class="monster">';
-				element +='	</div>';
-				element +=	'<div class = "text" >';
-				element +=		"test";
-				element +=	'</div>';
-				element +='</div>	';
-				$(link).find('.chat .scrollbar .container').append(element);
+			
+			if ($(this).data('type')  == "fr"){
+				$(link).find('.chat .input').show();
+				monsterRespond(link, $(this).data('q'), 300);	
+				response = $(this).data('r');
+			}else if($(this).data('type')  == "rec"){
+				alert("record");
+			}
+			else{
 				
-				scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
-				
-			},500);
+				console.log("no type");
+			}
 		});
 		
 		$(".input input").keyup(function(event){
@@ -60,6 +60,12 @@
 			scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
 			input.attr('value', "");
 			
+			$(link).find('.chat .input').hide();
+			monsterRespond(link, response, 2000 + Math.floor(Math.random()*2000))
+			
+			
+			
+			
 			return false;
 		});
 		
@@ -69,3 +75,29 @@
 
 
 });
+
+
+function monsterRespond(link, text,delay){
+
+	if (delay > 900)
+		$(link).find('.typing').show();
+	
+	setTimeout(function(){
+				$(link).find('.typing').hide();
+	
+				
+	
+				var element = '';
+				element +='<div class = "item right" >';
+				element +='	<div class = "icon" >';
+				element +='		<img src="imgs/m-chat.png" class="monster">';
+				element +='	</div>';
+				element +=	'<div class = "text" >';
+				element +=		text;
+				element +=	'</div>';
+				element +='</div>	';
+				$(link).find('.chat .scrollbar .container').append(element);
+				
+				$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+	},delay);
+}

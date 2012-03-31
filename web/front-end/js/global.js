@@ -16,3 +16,9 @@ function monsterSay(text, type, container){
 
 
 }
+
+
+var response = {
+	
+
+}

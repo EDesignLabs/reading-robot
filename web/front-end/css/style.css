@@ -40,6 +40,8 @@ nav{
     margin-top: 60px;
     width: 100%;
 	color: white;
+	
+	position:relative;
 }
 
 .chat .bar{
@@ -94,4 +96,12 @@ nav{
     min-height: 30px;
     text-indent: 15px;
     width: 598px;
+}
+
+.chat .typing{
+    bottom: 8px;
+    color: #EB7331;
+    position: absolute;
+    right: 45px;
+
 }
