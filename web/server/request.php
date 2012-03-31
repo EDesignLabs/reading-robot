@@ -46,7 +46,7 @@ switch ( $query )
 
 function dataUpload()
 {
-	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension?
+	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension?	
 	$uid = "null";
 	$pid = "null";
 	if ( $_POST['type'] ) 
@@ -61,7 +61,7 @@ function dataUpload()
 	{
 		$sql = 'INSERT INTO rb_content (name, pid, datatype) VALUES ("'.$_FILES['uploadedfile']['name'].'","pid","'.$type.'")';
 		$query = mysql_query($sql);
-		echo "http://aphes.com/dtc/uploads/".$name;
+		echo "http://aphes.com/dtc/uploads/".$fileurl;
 	 } else{
 	  echo 0;
 	 }
