@@ -46,19 +46,22 @@ switch ( $query )
 
 function dataUpload()
 {
-	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension
+	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension?
 	$uid = "null";
 	$pid = "null";
-	$type = $_POST['type'];		
+	if ( $_POST['type'] ) 
+		$type = $_POST['type'];		
+	else  
+		$type = "default";		
 	$fileurl 	 = rawurlencode(basename( $_FILES['uploadedfile']['name']));
 	$extension   = substr(strrchr(basename( $_FILES['uploadedfile']['name']), '.'), 1);
 	$target_path = "uploads/";
 	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) 
 	{
-		$sql = 'INSERT INTO rb_content (name, pid, uid) VALUES ("'.$_FILES['uploadedfile']['name'].'","'.$filesize.'","'.$extension.'","genre","'.$fileurl.'", "1")';
+		$sql = 'INSERT INTO rb_content (name, pid, datatype) VALUES ("'.$_FILES['uploadedfile']['name'].'","pid","'.$type.'")';
 		$query = mysql_query($sql);
-		echo 1;
+		echo "http://aphes.com/dtc/uploads/".$name;
 	 } else{
 	  echo 0;
 	 }
