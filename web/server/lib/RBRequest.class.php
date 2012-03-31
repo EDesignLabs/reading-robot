@@ -91,7 +91,7 @@ class RBRequest
 		if ( $pass['password'] == $password)
 			return 1;
 		else 
-			return 0;
+			return "error";
 	}
 
 	public function createUser( $user , $password )
