@@ -14,6 +14,7 @@
 @synthesize webView;
 @synthesize URL;
 @synthesize recordController;
+@synthesize loaded;
 
 static const NSString *recSuffix = @"REC";
 
@@ -21,6 +22,7 @@ static const NSString *recSuffix = @"REC";
 {
 	if ((self = [super init])) {
 		self.URL = url;
+        loaded = NO;
 	}
 	return self;
 }
@@ -32,6 +34,7 @@ static const NSString *recSuffix = @"REC";
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSLog(@"[generic web view] - web view did finish load");
+    self.loaded = YES;
 }
 
 /*- (void) loadPage:(NSString *)pagePath
@@ -75,12 +78,16 @@ static const NSString *recSuffix = @"REC";
     if ([self.URL hasPrefix:@"http:"]) {
         NSURL* url = [NSURL URLWithString:self.URL];
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        loaded = NO;
+
         [self.webView loadRequest:requestObj];
     }
     else {
         NSData *textFileData = [NSData dataWithContentsOfFile:self.URL];
         
         if(textFileData != nil) {
+            loaded = NO;
+
             NSLog(@"loading web view with page file: %@", self.URL);
             [webView loadData:textFileData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:
              [NSURL URLWithString: [GenericWebView getFormattedURLBaseForPath:[self.URL stringByDeletingLastPathComponent] ] ]];
@@ -115,6 +122,9 @@ static const NSString *recSuffix = @"REC";
         return;
     }
     
+    //clear recorder
+    [recordController reRecordButtonPressed];
+    
     CGRect webFrame = webView.frame;
     webFrame.size.height -= recordController.view.frame.size.height;
     webView.frame = webFrame;
@@ -132,8 +142,9 @@ static const NSString *recSuffix = @"REC";
     NSLog(@"[generic web view] - should start load with request - request url: %@", request.URL); 
     
     if ([[request.URL absoluteString] hasSuffix:recSuffix]) {
+        NSLog(@"record command recognized");
         [self doRecord];
-        //return NO;
+        return NO;
     }
     
     return YES;
@@ -141,7 +152,7 @@ static const NSString *recSuffix = @"REC";
 
 - (void) viewDidLoad {
     NSLog(@"[generic web view] - view did load - webview is : %@", self.webView);
-    
+
     
     //[self reload];
     
@@ -150,6 +161,11 @@ static const NSString *recSuffix = @"REC";
 //    [backButton release];
 }
 
+- (void) uploadSucceededWithResponse:(NSString *) responseString
+{
+    NSLog(@"[generic web view] - upload succeeed with response: %@", responseString);
+    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat: @"recordResultURL(\"%@\");", responseString]];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

@@ -19,9 +19,11 @@
 @property (nonatomic, retain) NSString *URL;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) RecordController *recordController;
+@property (nonatomic, assign) BOOL loaded;
 
 - (id) initWithPageURL:(NSString *) url;
 - (void) reload;
 - (IBAction) hideRecordPane;
+- (void) uploadSucceededWithResponse:(NSString *) responseString;
 
 @end

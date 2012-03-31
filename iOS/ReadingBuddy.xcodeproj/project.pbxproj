@@ -111,7 +111,7 @@
 /* Begin PBXFileReference section */
 		8F0A82E3150BF6FA0048058C /* GenericWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericWebView.h; sourceTree = "<group>"; };
 		8F0A82E4150BF6FA0048058C /* GenericWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericWebView.m; sourceTree = "<group>"; };
-		8F44905F14FEB9D4004F90C8 /* ReadingBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F44905F14FEB9D4004F90C8 /* ReadingMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F44906314FEB9D4004F90C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8F44906514FEB9D4004F90C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8F44906714FEB9D4004F90C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -300,7 +300,7 @@
 		8F44906014FEB9D4004F90C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F44905F14FEB9D4004F90C8 /* ReadingBuddy.app */,
+				8F44905F14FEB9D4004F90C8 /* ReadingMonster.app */,
 				8F44908314FEB9D4004F90C8 /* ReadingBuddyTests.octest */,
 			);
 			name = Products;
@@ -556,7 +556,7 @@
 			);
 			name = ReadingBuddy;
 			productName = ReadingBuddy;
-			productReference = 8F44905F14FEB9D4004F90C8 /* ReadingBuddy.app */;
+			productReference = 8F44905F14FEB9D4004F90C8 /* ReadingMonster.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8F44908214FEB9D4004F90C8 /* ReadingBuddyTests */ = {
@@ -827,7 +827,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Scott Lindenbaum (H34FR68ZEJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ilya lyashevsky (5H94SG5U7V)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -835,13 +835,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadingBuddy/ReadingBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ReadingBuddy/ReadingBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E739031E-37E8-496D-BB84-9E96A4D8CE99";
+				PRODUCT_NAME = ReadingMonster;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D61BC0B-35BA-482C-A7C5-9AA05D82217A";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -863,12 +863,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReadingBuddy/ReadingBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ReadingBuddy/ReadingBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReadingMonster;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;

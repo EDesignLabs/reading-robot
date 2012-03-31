@@ -402,9 +402,11 @@ static long const MIN_RECORDING_LENGTH = 10;
     
 }
 
+
 - (void) requestSucceeded:(NSString *) responseString
 {
     self.progressLabel.text = @"All Done! Hurray!";
+    [parentController uploadSucceededWithResponse:responseString];
     
     [self performSelector:@selector(hide) withObject:nil afterDelay:1.5];
 }
