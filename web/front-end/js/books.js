@@ -13,7 +13,24 @@
 		});
 		
 		$(".callout").click(function () {
-			//callout click
+			$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
+			var scrollbar  = $(link).find('.scrollbar');
+			
+			setTimeout(function(){
+				var element = '';
+				element +='<div class = "item right" >';
+				element +='	<div class = "icon" >';
+				element +='		<img src="imgs/m-chat.png" class="monster">';
+				element +='	</div>';
+				element +=	'<div class = "text" >';
+				element +=		"test";
+				element +=	'</div>';
+				element +='</div>	';
+				$(link).find('.chat .scrollbar .container').append(element);
+				
+				scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
+				
+			},500);
 		});
 		
 		$(".input input").keyup(function(event){
@@ -36,17 +53,12 @@
 			element +=	'</div>';
 			element +='</div>	';
 			$(link).find('.chat .scrollbar .container').append(element);
+			
 			//console.log(element);
 			
 			var scrollbar  = $(link).find('.scrollbar');
-			
 			scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
-			
 			input.attr('value', "");
-			
-			console.log(scrollbar);
-
-			
 			
 			return false;
 		});
