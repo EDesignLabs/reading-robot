@@ -19,23 +19,79 @@ nav{
     min-height: 60px;
 }
 
-.monster-callout{
-    bottom: 50px;
-    overflow: visible;
-    position: absolute;
-    right: 50px;
-	opacity: 0;
+.button{
+    border: 1px solid #CECECE;
+    font-size: 17px;
+    outline: 0 none;
+	text-align:center;
+	color:#727272;
+    background: url("../imgs/bg-button.png") repeat-x scroll right top #FFFFFF;
+    border-radius: 30px 30px 30px 30px;
+    margin-left: 5px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-transform: lowercase;
+	font-family: 'Antic Didone', serif;
 }
 
-.callout{
+.chat{
+    background: url("../imgs/bg-chat.png") repeat scroll right top #FFFFFF;
 
+    margin-top: 60px;
+    width: 100%;
+	color: white;
 }
 
-.monster-callout .text{
-    background: url("../imgs/callout.png") no-repeat scroll right bottom #FFFFFF;
-    left: -25px;
-    padding-bottom: 50px;
-    position: relative;
-    top: 0;
-	width: 165px;
+.chat .bar{
+	background: url("../imgs/bg-bar.png") repeat-x scroll right top transparent;
+	height: 10px;
+}
+
+
+.chat .scrollbar{
+    height: 192px;
+    overflow-y: scroll;
+}
+
+.chat .item{
+    display: table;
+    padding: 2px 20px 2px;
+    width: 100%;
+}
+
+.chat .item .icon{
+    float: left;
+    width: 95px;
+}
+.chat .item .text{
+    background: url("../imgs/bg-text.png") repeat-x scroll right top #FFFFFF;
+    color: black;
+    float: left;
+    margin-top: 5px;
+    max-width: 85%;
+    min-height: 40px;
+    padding: 12px;
+	
+}
+
+.chat .item.right .text{
+    float:right
+}
+
+.chat .item.right .icon{
+    float:right
+}
+
+.chat .input{
+    background: url("../imgs/bg-input.png") repeat-x scroll right top #FFFFFF;
+    min-height: 40px;
+}
+
+.chat .input input{
+    background: url("../imgs/input.png") no-repeat scroll right top transparent;
+    border: medium none;
+    margin-top: 4px;
+    min-height: 30px;
+    text-indent: 15px;
+    width: 598px;
 }

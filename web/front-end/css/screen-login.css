@@ -10,11 +10,11 @@
 	margin: auto;
 }
 
-#login input, #login .button{ 
+#login input{ 
     border: 1px solid #CECECE;
     font-size: 17px;
     outline: 0 none;
-    padding: 8px 13px;
+    padding: 4px 13px;
 	text-align:center;
 	color:#727272;
 }
@@ -29,15 +29,7 @@
 	border-color: #D55A34;
 }
 
-#login .button{
-    background: url("../imgs/bg-button.png") repeat-x scroll right top #FFFFFF;
-    border-radius: 30px 30px 30px 30px;
-    margin-left: 5px;
-    padding: 9px 20px;
-    text-decoration: none;
-    text-transform: lowercase;
-	font-family: 'Antic Didone', serif;
-}
+
 
 
 #login img{

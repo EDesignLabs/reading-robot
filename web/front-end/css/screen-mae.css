@@ -5,7 +5,7 @@
 }
 
 .flexslider{
-    width: 600px;
+    width: 960px;
 	overflow:hidden;
 
     display: block;
@@ -22,7 +22,7 @@
 }
 
 #mae li p{
-	width: 600px
+	width: 960px
 	
 }
 
@@ -40,7 +40,7 @@
 }
 
 .flex-direction-nav{
-	width: 60%;
+	width: 100%;
 }
 
 .flex-control-nav a{
@@ -59,3 +59,4 @@
     text-decoration:none;
 	color: black;
 }
+
