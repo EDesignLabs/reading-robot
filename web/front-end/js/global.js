@@ -11,3 +11,8 @@ function swipeTo(startScreen, endScreen){
 	});
 	
 }
+
+function monsterSay(text, type, container){
+
+
+}

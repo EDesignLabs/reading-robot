@@ -13,15 +13,43 @@
 		});
 		
 		$(".callout").click(function () {
-			$(this).fadeTo('slow', 0);
-			$(".monster-callout").fadeTo('fast', 1);
-			$(".monster-callout .text").effect( "bounce", {"times": 2}, 150);
-			
-			
-			$(".monster-callout .text").html($($(this).attr('href')).first().html());
+			//callout click
 		});
-
 		
+		$(".input input").keyup(function(event){
+			if(event.keyCode == 13){
+				$(link).find(".input .send").click();
+			}
+		});
+		
+		$(link).find(".input .send").click(function(){
+		
+			var input = $(link).find('.chat .input input');
+		
+			var element = '';
+			element +='<div class = "item " >';
+			element +='	<div class = "icon" >';
+			element +='		<img src="imgs/u-chat.png" class="monster">';
+			element +='	</div>';
+			element +=	'<div class = "text" >';
+			element +=		input.attr('value');
+			element +=	'</div>';
+			element +='</div>	';
+			$(link).find('.chat .scrollbar .container').append(element);
+			//console.log(element);
+			
+			var scrollbar  = $(link).find('.scrollbar');
+			
+			scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
+			
+			input.attr('value', "");
+			
+			console.log(scrollbar);
+
+			
+			
+			return false;
+		});
 		
 		
 		return false;
