@@ -13,14 +13,21 @@
     margin-bottom: 15px;
     overflow: hidden;
 	
-	min-height: 555px;
+	min-height: 355px;
     
+}
+
+.flexslider li{
+	width: 1310px;
+		padding: 0px;
+
 }
 
 #mae li{
 	font-family: 'Ubuntu', sans-serif;
-	font-size:19px;
+	font-size:22px;
 	line-height: 30px;
+
 }
 
 #mae li p{

@@ -16,12 +16,7 @@ function swipeTo(startScreen, endScreen){
 //disable link
 $(function(){
 
-	$('a.record').click(function(){
-	
-		return false;
-	}
-	
-	)
+
 
 
 
@@ -29,6 +24,9 @@ $(function(){
 
 
 function recordResultURL (url){
-	alert(url);
+
+	recordUrl = url;
 	
 }
+
+var recordUrl = "";

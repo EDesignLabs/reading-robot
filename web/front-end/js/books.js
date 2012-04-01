@@ -20,12 +20,19 @@
 			$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
 			
 			
-			if ($(this).data('type')  == "fr"){
-				$(link).find('.chat .input').show();
+			if ($(this).data('type')  == "fr"){  //free resonspe
+				
 				monsterRespond(link, $(this).data('q'), 300);	
-				response = $(this).data('r');
+				humanRespond(link, 400,$(this).data('r'))
+			
+			}else if($(this).data('type')  == "f"){  //just moster saying something no response
+				monsterRespond(link, $(this).data('q'), 300);	
+			
+				
 			}else if($(this).data('type')  == "rec"){
 				alert("record");
+			}else if ($(this).data('type')  == "m"){
+				humanRespondMulti(link, 400,$(this).data('c'))
 			}
 			else{
 				
@@ -38,36 +45,7 @@
 				$(link).find(".input .send").click();
 			}
 		});
-		
-		$(link).find(".input .send").click(function(){
-		
-			var input = $(link).find('.chat .input input');
-		
-			var element = '';
-			element +='<div class = "item " >';
-			element +='	<div class = "icon" >';
-			element +='		<img src="imgs/u-chat.png" class="monster">';
-			element +='	</div>';
-			element +=	'<div class = "text" >';
-			element +=		input.attr('value');
-			element +=	'</div>';
-			element +='</div>	';
-			$(link).find('.chat .scrollbar .container').append(element);
-			
-			//console.log(element);
-			
-			var scrollbar  = $(link).find('.scrollbar');
-			scrollbar.animate({scrollTop:  scrollbar.prop("scrollHeight") },'slow');
-			input.attr('value', "");
-			
-			$(link).find('.chat .input').hide();
-			monsterRespond(link, response, 2000 + Math.floor(Math.random()*2000))
-			
-			
-			
-			
-			return false;
-		});
+
 		
 		
 		return false;
@@ -100,4 +78,116 @@ function monsterRespond(link, text,delay){
 				
 				$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
 	},delay);
+}
+
+
+function humanRespond(link, delay, response){
+
+	setTimeout(function(){
+				$(link).find('.typing').hide();
+	
+				
+	
+				var element = '';
+				element +='<div class = "item" >';
+				element +='	<div class = "icon" >';
+				element +='		<img src="imgs/u-chat.png" class="monster">';
+				element +='	</div>';
+				element +=	'<div class = "text" >';
+				element +=		'<textarea rows="2" cols="70"></textarea> <a class="send button" href="#">Send</a>';
+				element +=	'</div>';
+				element +='</div>	';
+				var ele = $(link).find('.chat .scrollbar .container').append(element);
+				
+				
+		
+				ele.find(".send").click(function(){
+
+					if (response != "")
+						monsterRespond(link, response, 2000 + Math.floor(Math.random()*2000))
+					
+					ele.find('textarea').hide();
+					ele.find('.send').hide();
+					ele.find('.text').append(ele.find('textarea').val());
+					
+					//CREATE PROMPT
+					$.ajax({
+					  type: 'POST',
+					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
+					  data: {user: name, pid: "FreeResponse", data:ele.find('textarea').val()},
+					  success: function(a) {
+						  if (a === 0) console.log("fail");
+						  else if (a === 1) console.log("success");
+						},
+					  error: function(a) {
+						  console.log(a);
+						  }
+					});
+					
+					
+					return false;
+				});
+				
+				$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+	},delay);
+	
+}
+
+function humanRespondMulti(link, delay, qs){
+
+	setTimeout(function(){
+				$(link).find('.typing').hide();
+	
+				
+	
+				var element = '';
+				element +='<div class = "item" >';
+				element +='	<div class = "icon" >';
+				element +='		<img src="imgs/u-chat.png" class="monster">';
+				element +='	</div>';
+				element +=	'<div class = "text" >';
+				
+				var arr = qs.split(",");
+								
+				for (var i = 0; i < arr.length; i++) {
+					element += '<a href = "#c" class = "choice send button" >'+arr[i]+'</a><br>';
+				}
+
+
+				element +=	'</div>';
+				element +='</div>	';
+				var ele =  $(element);
+				$(link).find('.chat .scrollbar .container').append(ele);
+				
+				
+		
+				ele.find(".choice").click(function(){
+
+
+					ele.find('.choice').hide();
+					ele.find('br').hide();
+					
+					ele.find('.text').append($(this).text());
+					
+					//CREATE PROMPT
+					$.ajax({
+					  type: 'POST',
+					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
+					  data: {user: name, pid: "MultipleChoice", data:$(this).text()},
+					  success: function(a) {
+						  if (a === 0) console.log("fail");
+						  else if (a === 1) console.log("success");
+						},
+					  error: function(a) {
+						  console.log(a);
+						  }
+					});
+					
+					
+					return false;
+				});
+				
+				$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+	},delay);
+	
 }
