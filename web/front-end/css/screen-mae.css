@@ -1,4 +1,4 @@
-﻿#mae nav{
+﻿.book-content nav{
     font-family: 'Antic Didone',serif;
     font-size: 32px;
     padding-top: 13px;
@@ -23,14 +23,14 @@
 
 }
 
-#mae li{
+.book-content li{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:22px;
 	line-height: 30px;
 
 }
 
-#mae li p{
+.book-content li p{
 	width: 960px
 	
 }

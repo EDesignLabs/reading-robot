@@ -31,6 +31,8 @@
 				
 			}else if($(this).data('type')  == "rec"){
 				//alert("record");
+				monsterRespond(link, $(this).data('q'), 300);	
+				
 			}else if ($(this).data('type')  == "m"){
 				humanRespondMulti(link, 400,$(this).data('c'), $(this).data('q'))
 			}
