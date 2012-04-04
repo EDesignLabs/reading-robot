@@ -30,9 +30,9 @@
 			
 				
 			}else if($(this).data('type')  == "rec"){
-				alert("record");
+				//alert("record");
 			}else if ($(this).data('type')  == "m"){
-				humanRespondMulti(link, 400,$(this).data('c'))
+				humanRespondMulti(link, 400,$(this).data('c'), $(this).data('q'))
 			}
 			else{
 				
@@ -94,7 +94,7 @@ function humanRespond(link, delay, response){
 				element +='		<img src="imgs/u-chat.png" class="monster">';
 				element +='	</div>';
 				element +=	'<div class = "text" >';
-				element +=		'<textarea rows="2" cols="70"></textarea> <a class="send button" href="#">Send</a>';
+				element +=		'<textarea rows="2" cols="60" size="17"></textarea> <a class="send button" href="#">Send</a>';
 				element +=	'</div>';
 				element +='</div>	';
 				var ele = $(link).find('.chat .scrollbar .container').append(element);
@@ -133,7 +133,7 @@ function humanRespond(link, delay, response){
 	
 }
 
-function humanRespondMulti(link, delay, qs){
+function humanRespondMulti(link, delay, qs, p){
 
 	setTimeout(function(){
 				$(link).find('.typing').hide();
@@ -146,6 +146,8 @@ function humanRespondMulti(link, delay, qs){
 				element +='		<img src="imgs/u-chat.png" class="monster">';
 				element +='	</div>';
 				element +=	'<div class = "text" >';
+				
+				element += '<div class = "prompt" >'+p+'</div>';
 				
 				var arr = qs.split(",");
 								
@@ -167,7 +169,7 @@ function humanRespondMulti(link, delay, qs){
 					ele.find('.choice').hide();
 					ele.find('br').hide();
 					
-					ele.find('.text').append($(this).text());
+					ele.find('.text').text($(this).text());
 					
 					//CREATE PROMPT
 					$.ajax({

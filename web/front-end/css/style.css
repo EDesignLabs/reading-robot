@@ -21,17 +21,16 @@ nav{
 
 .button{
 	display: block;
-    border: 1px solid #CECECE;
+    border: 1px solid #fff;
     font-size: 17px;
     outline: 0 none;
 	text-align:center;
-	color:#727272;
+	color:#444;
     background: url("../imgs/bg-button.png") repeat-x scroll right top #FFFFFF;
     border-radius: 30px 30px 30px 30px;
     margin-left: 5px;
     padding: 5px 20px;
     text-decoration: none;
-    text-transform: lowercase;
 	font-family: 'Antic Didone', serif;
 }
 
@@ -67,7 +66,7 @@ nav{
     width: 95px;
 }
 .chat .item .text{
-    background: url("../imgs/bg-text.png") repeat-x scroll right top #FFFFFF;
+    background: url("../imgs/bg-text.png") repeat-x scroll right top #CCC;
     color: black;
     float: left;
     margin-top: 5px;
@@ -82,6 +81,11 @@ nav{
 .chat .item.right .text{
     float:right
 }
+
+.chat .item .text textarea{
+	font-size: 22px;
+}
+
 
 .chat .item.right .icon{
     float:right
@@ -108,3 +112,11 @@ nav{
     right: 45px;
 
 }
+
+.chat .prompt{
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 0;
+    padding: 10px;
+}
+
