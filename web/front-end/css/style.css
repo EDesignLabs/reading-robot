@@ -5,12 +5,15 @@ body{
 }
 
 .container{
-	width: 960px;
+	width: 62%;
+	float:left;
 	margin: auto;
 }
 
 .screen{
 	display:none;
+	width:960px;
+	margin:auto;
 }
 
 
@@ -36,9 +39,9 @@ nav{
 
 .chat{
     background: url("../imgs/bg-chat.png") repeat scroll right top #FFFFFF;
-
+	float:right;
     margin-top: 60px;
-    width: 100%;
+    width: 35%;
 	color: white;
 	
 	position:relative;
@@ -51,26 +54,30 @@ nav{
 
 
 .chat .scrollbar{
-    height: 392px;
+    height: 610px;
     overflow-y: scroll;
+	padding: 10px 0;
 }
 
 .chat .item{
     display: table;
-    padding: 2px 20px 2px;
-    width: 100%;
+    width: 98%;
+}
+
+.chat .item .icon img{
+	width:100%;
 }
 
 .chat .item .icon{
     float: left;
-    width: 95px;
+    width: 45px;
 }
 .chat .item .text{
     background: url("../imgs/bg-text.png") repeat-x scroll right top #CCC;
     color: black;
     float: left;
     margin-top: 5px;
-    max-width: 85%;
+    max-width: 75%;
     min-height: 40px;
     padding: 12px;
 	border-radius: 7px;

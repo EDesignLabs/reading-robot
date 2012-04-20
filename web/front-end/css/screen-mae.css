@@ -5,7 +5,7 @@
 }
 
 .flexslider{
-    width: 960px;
+    width: 100%;
 	overflow:hidden;
 
     display: block;
@@ -18,8 +18,8 @@
 }
 
 .flexslider li{
-	width: 1310px;
-		padding: 0px;
+
+	padding: 0px;
 
 }
 
@@ -30,10 +30,7 @@
 
 }
 
-.book-content li p{
-	width: 960px
-	
-}
+
 
 
 
