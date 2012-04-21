@@ -1,7 +1,12 @@
+html {
+	height: 100%;
+}
+
 body{
 	font-family: sans-serif;
 	overflow-x: hidden;
-	background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
+	height:100%;
+	background-color: #FBFBFB;
 }
 
 .container{
@@ -12,14 +17,26 @@ body{
 
 .screen{
 	display:none;
-	width:960px;
+	width:1024px;
 	margin:auto;
+	height: 100%
+}
+
+.contexts{
+	height:100%;
 }
 
 
 nav{
-    background: url("../imgs/bg.png") repeat-x scroll right top #FFFFFF;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+    font-size: 32px;
+    padding-top: 15px;
+	padding-left: 15px;
     min-height: 60px;
+	text-shadow: 1px 1px 0px #e5e5ee;
+	color: #504F4D;
 }
 
 .button{
@@ -37,25 +54,39 @@ nav{
 	font-family: 'Antic Didone', serif;
 }
 
+.flex-container{
+	width: 65%;
+	height: 100%;
+	float:left;
+	
+}
+
+
+
 .chat{
     background: url("../imgs/bg-chat.png") repeat scroll right top #FFFFFF;
 	float:right;
-    margin-top: 60px;
     width: 35%;
 	color: white;
-	
+	height:100%;
 	position:relative;
+
 }
 
 .chat .bar{
-	background: url("../imgs/bg-bar.png") repeat-x scroll right top transparent;
-	height: 10px;
+	background: url("../imgs/bg-bar.png") repeat-y scroll right top transparent;
+	height: 900px;
+	width: 10px;
+	height:100%;
+	float:left;
+	position:absolute;
+	left: -9px;
 }
 
 
 .chat .scrollbar{
     height: 610px;
-    overflow-y: scroll;
+    
 	padding: 10px 0;
 }
 
@@ -79,7 +110,7 @@ nav{
     margin-top: 5px;
     max-width: 75%;
     min-height: 40px;
-    padding: 12px;
+    padding: 12px 12px 0;
 	border-radius: 7px;
 	font-size: 17px;
 	line-height:22px;

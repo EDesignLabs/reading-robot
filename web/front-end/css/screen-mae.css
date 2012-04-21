@@ -1,8 +1,4 @@
-﻿.book-content nav{
-    font-family: 'Antic Didone',serif;
-    font-size: 32px;
-    padding-top: 13px;
-}
+﻿
 
 .flexslider{
     width: 100%;
@@ -49,20 +45,51 @@
 	width: 100%;
 }
 
+.flex-direction-nav li a{
+    background: url("../imgs/bg-button.png") repeat-x scroll right top #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 30px 30px 30px 30px;
+    color: #444444;
+    display: block;
+    font-size: 17px;
+    margin-left: 5px;
+    outline: 0 none;
+    padding: 0 20px 5px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: lowercase;
+    top: -3px;
+}
+
+.flex-direction-nav li a.disabled{
+	color: #AAAAAA;
+}
+
 .flex-control-nav a{
-    cursor:pointer;
-	
+    background-color: #DDDDDD;
+    border-radius: 15px 15px 15px 15px;
+    color: #BBBBBB;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    height: 32px;
+    text-align: center;
+    text-indent: 1px;
+    width: 32px;
 }
 
 .flex-direction-nav .prev{
 	float:left;
     text-decoration:none;
-	color: black;
+	color:  #333;
 }
 
 .flex-direction-nav .next{
-	float:right;
-    text-decoration:none;
-	color: black;
+    color: #333;
+    float: right;
+    margin-right: 14px;
+    text-decoration: none;
 }
 

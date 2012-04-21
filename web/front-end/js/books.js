@@ -6,21 +6,25 @@
 	$('#books a').click(function(){
 		link = $(this).attr('href');
 		swipeTo($('#books'),$(link));
+
 		
 		$(link).flexslider({
+			controlsContainer: ".flex-container",
 			animation: "slide",              //String: Select your animation type, "fade" or "slide"
 			slideDirection: "horizontal",   //String: Select the sliding direction, "horizontal" or "vertical"
 			slideshow: false, 
-			controlsContainer: link + " .controls",
-			animationLoop: false
+			animationLoop: false,
+			prevText: "&laquo; Previous",           //String: Set the text for the "previous" directionNav item
+			nextText: "Next &raquo;"
 		});
 		
 		
 		$(".callout").click(function () {
-			$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
-				nodes = window[$(this).data('id')];
-				console.log(nodes);
-				monsterSay(700); 
+			//$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
+			$(this).animate({opacity: 0, width: 0}); 
+			nodes = window[$(this).data('id')];
+			monsterSay(700); 
+			
 		});
 		
 		$(".input input").keyup(function(event){
