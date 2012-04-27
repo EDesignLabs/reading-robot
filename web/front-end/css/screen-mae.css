@@ -19,6 +19,14 @@
 
 }
 
+.flexslider p{
+    font-size: 20px;
+    height: 500px;
+    padding: 20px 0 0;
+    width: 650px;
+
+}
+
 .book-content li{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:22px;

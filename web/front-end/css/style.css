@@ -61,6 +61,14 @@ nav{
 	
 }
 
+.ct{
+    background: url("../imgs/eye.png") no-repeat scroll center 3px #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    padding: 0 6px;
+    width: 15px;
+}
 
 
 .chat{
@@ -104,16 +112,16 @@ nav{
     width: 45px;
 }
 .chat .item .text{
-    background: url("../imgs/bg-text.png") repeat-x scroll right top #CCC;
+    background: url("../imgs/bg-text.png") repeat-x scroll right top #CCCCCC;
+    border-radius: 7px 7px 7px 7px;
     color: black;
     float: left;
+    font-size: 17px;
+    line-height: 21px;
     margin-top: 5px;
     max-width: 75%;
-    min-height: 40px;
-    padding: 12px 12px 0;
-	border-radius: 7px;
-	font-size: 17px;
-	line-height:22px;
+    min-height: 25px;
+    padding: 12px 12px 7px;
 }
 
 .chat .item.right .text{

@@ -2,18 +2,12 @@
 	"n" : "What color is the sky?",
 	"b" : {
 		"Blue":{
-			"n" : "Correct",
+			"n" : "Correct. Now to free response....",
 			"b" : {
-				"n":"I see you are a worthy opponenet. Who is the president",
+				"n":"What is waht....",
 				"b":{
-					"Kevin" : {
-						"n": "Kevin is wrong"
-					},
-					"Josh" : {
-						"n": "Kevin is wrong"
-					},
-					"Obama" : {
-						"n": "WOOT you got it right!"
+					"free" : {
+						"n": "WoW"
 					}
 				}
 			}
