@@ -1,6 +1,6 @@
 <?
 //Request class handling api requests
-require_once('includes/mysql_connect.php');
+require_once('../includes/mysql_connect.php');
 
 class RBRequest
 {
@@ -10,9 +10,9 @@ class RBRequest
 
 	}
 
-	public function createPrompt( $user, $pid, $data)
+	public function createPrompt( $user, $book, $data, $bookpage)
 	{
-		$sql = "INSERT INTO rb_prompts (user, pid, data) VALUES ('$user','$pid','$data')";
+		$sql = "INSERT INTO rb_prompts (user, book, data, book_page) VALUES ('$user','$book','$data','$bookpage')";
 		$response = mysql_query($sql);
 		if ( $response )
 			return 1;
@@ -106,7 +106,55 @@ class RBRequest
 		else 
 			return 0;
 	}
+	
+	public function getAllUsers()
+	{
+		$sql      = 'SELECT user, create_date FROM rb_prompts GROUP BY user';
+		$response = mysql_query($sql);
+		$li = "<table>";
+		$li .= "<tr><th>Student</th><th>Latest Activity</th></tr>";
+		while ($row = mysql_fetch_assoc($response))
+		{
+			$li .= "<tr>";
+			$li .= "<td><a href=\"users.php?user=".$row['user']."\">".$row['user']."</a></td><td>".date("F j, Y, g:i a", strtotime($row['create_date']))."</td>";
+			$li .= "</tr>";	
+		}
+		$li .= "</table>";
+		return $li;	
+	}
+	
+	public function getAllBooksForUser($user)
+	{
+		$sql 	  = 'SELECT book, create_date FROM rb_prompts WHERE user="'.$user.'" GROUP BY book';
+		$response = mysql_query($sql);
+		$li = "<h1>List of all books read by ".$user."</h1>";
+		$li .= "<table>";
+		$li .= "<tr><th>Book</th><th>Latest Activity</th></tr>";
+		while ($row = mysql_fetch_assoc($response))
+		{
+			$li .= "<tr>";
+			$li .= "<td><a href=\"books.php?user=".$user."&book=".$row['book']."\">".$row['book']."</a></td><td>".date("F j, Y, g:i a", strtotime($row['create_date']))."</td>";
+			$li .= "</tr>";	
+		}
+		$li .= "</table>";
+		return $li;
+	}
 
+	public function getContentForStudent($user,$book)
+	{
+		$sql 	  = 'SELECT create_date, data, book_page FROM rb_prompts WHERE user="'.urldecode($user).'" AND book="'.urldecode($book).'"';
+		$response = mysql_query($sql);
+		$payload  = "<h1>".$user."</h1>";
+		$payload .= "<h2>".$book."</h2>";
+		while ($row = mysql_fetch_assoc($response))
+		{	
+			$payload .= "<div>";
+			$payload .= "<p><b>PROMPT AND ANSWER: </b><br/><br/>".$row['data']."</p>";
+			$payload .= "<p class=\"book-page\"><b>BOOK EXCERPT: </b><br/><br/> ".$row['book_page']."</p>";
+			$payload .= "</div>";			
+		}
+		return $payload;
+	}
 }
 
 ?>

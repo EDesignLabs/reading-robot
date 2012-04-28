@@ -6,7 +6,8 @@ require_once("lib/RBRequest.class.php");
 
 $request = new RBRequest();
 $query    = $request->getPrompts();	
-echo $query;
+var_dump(json_decode($query, true));
+
 
 $sql = 'SELECT username FROM rb_users';
 $response = mysql_query($sql);
@@ -17,4 +18,3 @@ while ($row = mysql_fetch_assoc($response))
 	echo "user: " . $row['username'];
 	echo "\n";
 }
-

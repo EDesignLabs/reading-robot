@@ -3,16 +3,19 @@
 //error_reporting(E_ALL|E_STRICT);
 //api root touchpoint
 require_once("lib/RBRequest.class.php");
-$query = $_GET['query'];
+
+if (isset( $_GET['query'] ) )$query = $_GET['query'];
+else $query = "";
 $request = new RBRequest();
 
 switch ( $query ) 
 {
 	case "createPrompt":
 		$username = $_POST["user"];		
-		$pid	  = $_POST["pid"];		
-		$data 	  = $_POST["data"];				
-		$query    = $request->createPrompt($username, $pid, $data);	
+		$book	  = $_POST["book"];		
+		$data 	  = $_POST["data"];		
+		$bookpage = $_POST["bookpage"];						
+		$query    = $request->createPrompt($username, $book, $data, $bookpage);	
 		echo $query;
 		break;
 	case "getUserPrompts":
@@ -41,11 +44,19 @@ switch ( $query )
 		$query = $request->checkPassword( $username, $password);	
 		echo $query;
 		break;	
+	case "getAllUsers":
+		$query = $request->getAllUsers();
+		echo $query;
+		break;
+	case "getAllUsers":
+		$query = $request->getAllBooks();
+		echo $query;
+		break;		
 	case "uploadData":
 		dataUpload();
 		break;
 	default:
-		echo "give me something to do";
+	//	echo "give me something to do";
 		break;
 }
 
@@ -53,7 +64,11 @@ function dataUpload()
 {
 	$name = date("dMYHis").uniqid($name);	 //do we need to pass in a file extension?	
 	$uid = "null";
-	$pid = "null";
+	if ( $_POST['pid'] ) 
+		$pid = $_POST['pid'];		
+	else  
+		$pid = "default";
+		
 	if ( $_POST['type'] ) 
 		$type = $_POST['type'];		
 	else  
@@ -64,7 +79,7 @@ function dataUpload()
 	$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) 
 	{
-		$sql = 'INSERT INTO rb_content (name, pid, datatype) VALUES ("'.$_FILES['uploadedfile']['name'].'","pid","'.$type.'")';
+		$sql = 'INSERT INTO rb_content (name, pid, datatype) VALUES ("'.$_FILES['uploadedfile']['name'].'","'.$pid.'","'.$type.'")';
 		$query = mysql_query($sql);
 		echo "http://aphes.com/dtc/uploads/".$fileurl;
 	 } else{

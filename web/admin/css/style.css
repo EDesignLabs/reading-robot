@@ -1,0 +1,15 @@
+ul li{
+   list-style:none; 
+}
+
+body{
+    width:800px;
+    margin-left:10px;
+}
+
+div{
+    background: #F5F5F5;
+    border:1px #3C98CB solid;
+    padding:10px;
+    margin-bottom:5px;
+}
