@@ -150,7 +150,7 @@ class RBRequest
 		{	
 			$payload .= "<div>";
 			$payload .= "<p><b>PROMPT AND ANSWER: </b><br/><br/>".$row['data']."</p>";
-			$payload .= "<p class=\"book-page\"><b>BOOK EXCERPT: </b><br/><br/> ".$row['book_page']."</p>";
+			$payload .= "<div class=\"excerpt\"><b>CLICK TO SEE EXCERPT: </b><br/><br/> <p class=\"book-page\" style=\"display:none\">".$row['book_page']."</p></div>";
 			$payload .= "</div>";			
 		}
 		return $payload;
