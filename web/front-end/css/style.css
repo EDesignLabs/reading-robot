@@ -62,7 +62,7 @@ nav{
 }
 
 .ct{
-    background: url("../imgs/eye.png") no-repeat scroll center 3px #FFFFFF;
+    background: url("../imgs/eye.png") no-repeat scroll center 3px transparent;
     cursor: pointer;
     display: inline-block;
     height: 20px;
@@ -93,8 +93,8 @@ nav{
 
 
 .chat .scrollbar{
-    height: 610px;
-    
+    height: 670px;
+    overflow:auto;
 	padding: 10px 0;
 }
 

@@ -21,10 +21,12 @@
 
 .flexslider p{
     font-size: 20px;
-    height: 500px;
-    padding: 20px 0 0;
-    width: 650px;
-
+    
+    padding: 20px 0 0 15px;
+    width: 630px;
+	
+	height: 670px;
+	
 }
 
 .book-content li{
@@ -34,7 +36,9 @@
 
 }
 
-
+.flex-control-nav{
+	padding-left: 10px;
+}
 
 
 

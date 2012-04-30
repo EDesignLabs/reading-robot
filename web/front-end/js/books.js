@@ -2,6 +2,9 @@
 
 	var link;
 	var nodes;
+	var lastMonsterResponse = "";
+	var lastHumanResponse = "";
+	
 
 	$('#books a').click(function(){
 		link = $(this).attr('href');
@@ -14,6 +17,7 @@
 			slideDirection: "horizontal",   //String: Select the sliding direction, "horizontal" or "vertical"
 			slideshow: false, 
 			animationLoop: false,
+			keyboardNav: true,
 			prevText: "&laquo; Previous",           //String: Set the text for the "previous" directionNav item
 			nextText: "Next &raquo;"
 		});
@@ -48,6 +52,8 @@
 			$(link).find('.typing').show();
 		
 		setTimeout(function(){
+					tts(nodes["n"]);
+		
 					$(link).find('.typing').hide();
 					var element = '';
 					element +='<div class = "item right" >';
@@ -60,62 +66,14 @@
 					element +='</div>	';
 					$(link).find('.chat .scrollbar').append(element);
 					
-					$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+					$('.scrollbar').scrollTop(900000);
 					
+					lastMonsterResponse = nodes["n"];
 					
 					if (nodes.b != undefined)
 						humanResponse(30);
 		},delay);
 		
-		
-	}
-
-
-	function humanRespond(delay, response){
-
-		setTimeout(function(){
-					$(link).find('.typing').hide();
-
-					var element = '';
-					element +='<div class = "item" >';
-					element +='	<div class = "icon" >';
-					element +='		<img src="imgs/u-chat.png" class="monster">';
-					element +='	</div>';
-					element +=	'<div class = "text" >';
-					element +=		'<textarea rows="2" cols="60" size="17"></textarea> <a class="send button" href="#">Send</a>';
-					element +=	'</div>';
-					element +='</div>';
-					
-					var ele = $(link).find('.chat .scrollbar ').append(element);
-					ele.find(".send").click(function(){
-
-						if (response != "")
-							monsterRespond(link, response, 2000 + Math.floor(Math.random()*2000))
-						
-						ele.find('textarea').hide();
-						ele.find('.send').hide();
-						ele.find('.text').append(ele.find('textarea').val());
-						
-						//CREATE PROMPT
-						$.ajax({
-						  type: 'POST',
-						  url: "http://aphes.com/dtc/request.php?query=createPrompt",
-						  data: {user: name, pid: "FreeResponse", data:ele.find('textarea').val()},
-						  success: function(a) {
-							  if (a === 0) console.log("fail");
-							  else if (a === 1) console.log("success");
-							},
-						  error: function(a) {
-							  console.log(a);
-							  }
-						});
-						
-						
-						return false;
-					});
-					
-					$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
-		},delay);
 		
 	}
 
@@ -141,9 +99,12 @@
 			
 			console.log(nodes["b"]["_REC"]);
 			if (nodes["b"]["_REC"] != undefined ){   //////////////////////LETS RECORD INSTEAD OF MULTICHOICE
-				console.log("RECORD");
+				if (ipad){
+					window.location = "_REC";
+					console.log("RECORDING");
+				}
 			}
-			else if (nodes["b"]["free"] != undefined ){
+			else if (nodes["b"]["Free_Response"] != undefined ){
 				element +=		'<textarea rows="2" cols="18" size="17"></textarea> <a class="send button" href="#">Send</a>';
 				element +=	'</div>';
 				element +='</div>';
@@ -188,7 +149,7 @@
 				});
 			}
 			
-			//$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+			$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
 		},delay);
 		
 	}

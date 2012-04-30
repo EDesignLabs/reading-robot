@@ -22,11 +22,18 @@ $(function(){
 
 });
 
-
+var recordUrl = "";
 function recordResultURL (url){
-
 	recordUrl = url;
-	
 }
 
-var recordUrl = "";
+var ipad = false;
+
+function tts(text){
+	if (ipad)
+		window.location = "_TTS?text=" + text;
+}
+
+function ipadstart(){
+	ipad = true;
+}
