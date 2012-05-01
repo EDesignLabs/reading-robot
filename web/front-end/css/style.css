@@ -46,7 +46,7 @@ nav{
     outline: 0 none;
 	text-align:center;
 	color:#444;
-    background: url("../imgs/bg-button.png") repeat-x scroll right top #FFFFFF;
+    background: url("../imgs/bg-button.png") repeat scroll right bottom #FFFFFF;
     border-radius: 30px 30px 30px 30px;
     margin-left: 5px;
     padding: 5px 20px;

@@ -19,7 +19,18 @@
 			animationLoop: false,
 			keyboardNav: true,
 			prevText: "&laquo; Previous",           //String: Set the text for the "previous" directionNav item
-			nextText: "Next &raquo;"
+			nextText: "Next &raquo;",
+			start: function(slider){ // init the height of the first item on start
+				/* add a current class to the active item */
+				slider.slides.removeClass('currentpage');
+				slider.slides.eq(0).addClass('currentpage');
+			},          
+			before: function(slider){ // init the height of the next item before slide
+				/* add a current class to the active item */
+				var $animatingTo = slider.slides.eq(slider.animatingTo);
+				slider.slides.removeClass('currentpage');
+				$animatingTo.addClass('currentpage');
+			}  
 		});
 		
 		
@@ -119,6 +130,19 @@
 					nodes = nodes.b["free"]; 
 					monsterSay(500);
 					
+					$.ajax({
+					  type: 'POST',
+					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
+					  data: {user: name, book: link, data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+ele.find('textarea').val(), bookpage: $('.currentpage').text()},
+					  success: function(a) {
+						  if (a === 0) console.log("fail");
+						  else if (a === 1) console.log("success");
+						},
+					  error: function(a) {
+						  console.log(a);
+						  }
+					});
+					
 					return false;
 				});
 			}else{
@@ -136,14 +160,24 @@
 					ele.find('.choice').hide();
 					ele.find('br').hide();
 					
-					ele.find('.text').text($(this).text());
 					
-					console.log(nodes.b[$(this).text()]);
+					ele.find('.text').text($(this).text());
 					
 					nodes = nodes.b[$(this).text()]; 
 					monsterSay(500);
 					
-					
+					$.ajax({
+					  type: 'POST',
+					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
+					  data: {user: name, book: link, data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+$(this).text(), bookpage: $('.currentpage').text()},
+					  success: function(a) {
+						  if (a === 0) console.log("fail");
+						  else if (a === 1) console.log("success");
+						},
+					  error: function(a) {
+						  console.log(a);
+						  }
+					});
 					
 					return false;
 				});
