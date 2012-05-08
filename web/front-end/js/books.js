@@ -30,7 +30,19 @@
 				var $animatingTo = slider.slides.eq(slider.animatingTo);
 				slider.slides.removeClass('currentpage');
 				$animatingTo.addClass('currentpage');
-			}  
+			} ,
+			after: function(slider){
+				console.log(slider.currentSlide);
+			
+				if (link == "#mae"){
+					if (slider.currentSlide  == 5){
+						nodes = {n:"Wow 5 pages. Keep it up!"};
+						monsterSay(700);
+					}
+						
+				}
+					
+			}
 		});
 		
 		
