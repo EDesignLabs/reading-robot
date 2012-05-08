@@ -133,7 +133,7 @@
 					$.ajax({
 					  type: 'POST',
 					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
-					  data: {user: name, book: link, data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+ele.find('textarea').val(), bookpage: $('.currentpage').text()},
+					  data: {user: name, book: link.replace("#", ""), data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+ele.find('textarea').val(), bookpage: $('.currentpage').text()},
 					  success: function(a) {
 						  if (a === 0) console.log("fail");
 						  else if (a === 1) console.log("success");
@@ -169,7 +169,7 @@
 					$.ajax({
 					  type: 'POST',
 					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
-					  data: {user: name, book: link, data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+$(this).text(), bookpage: $('.currentpage').text()},
+					  data: {user: name, book: link.replace("#", ""), data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+$(this).text(), bookpage: $('.currentpage').text()},
 					  success: function(a) {
 						  if (a === 0) console.log("fail");
 						  else if (a === 1) console.log("success");
