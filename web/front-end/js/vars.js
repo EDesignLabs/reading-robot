@@ -175,3 +175,69 @@ m8 = {
       }
    }
 };
+
+var w1 = 
+    {
+       n: ' Why do you think Epimetheus forgot his brother\'s words?',
+       b: {
+          ' Epimetheus\' brother was a liar.': {
+             n: 'Wasn’t it something about love..!? Read the last sentence again. '
+          },
+          ' Epimetheus fell in love with Pandora.': {
+             n: 'He totally loves her!!!'
+          },
+          ' Epimetheus did not like his brother.': {
+             n: ' Wasn’t it something about love..!? Read the last sentence again. '
+          }
+       }
+    };
+    
+var w2 =    
+    {
+        n: ' Maybe a quick definition of Yellowstone park with a picture'
+    };
+
+var w3 =    
+    {
+        n: ' Did you notice that Doug Smith is now called a doctor?'
+    };
+
+var w4 =      
+    {
+        n: ' What does it mean to be persecuted?',
+        b: {
+            Free_Response: {
+                n: 'Thanks. Let’s keep reading.'
+            }
+     };
+
+var w5 =      
+    {
+        n: ' Hmm.. It sounds like Doug was really passionate about getting involved. Have you ever been passionate about getting involved with something?',
+        b: {
+             Free_Response: {
+                 n: 'Thanks. Let’s keep reading.'
+             }
+      };     
+    
+var w6 = 
+{
+    n: ' Whoa! Wolves seemed to be treated really badly. Why do you think people were killing wolves?',
+    b: {
+         Free_Response: {
+             n: 'Thanks. Let’s keep reading.'
+         }
+ };
+
+var w7 = {};
+
+var w8 = 
+{
+    n: ' What lesson do you think the wolves are teaching us?',
+    b: {
+         Free_Response: {
+             n: 'Thanks. Let’s keep reading.'
+         }
+};
+
+
