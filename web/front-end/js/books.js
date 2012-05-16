@@ -9,7 +9,8 @@
 	$('#books a').click(function(){
 		link = $(this).attr('href');
 		swipeTo($('#books'),$(link));
-
+		
+		
 		
 		$(link).flexslider({
 			controlsContainer: ".flex-container",
@@ -44,6 +45,8 @@
 					
 			}
 		});
+		
+		//$('.flexslider p').height($(document).height()-100);
 		
 		
 		$(".ct").click(function () {
@@ -128,7 +131,7 @@
 				}
 			}
 			else if (nodes["b"]["Free_Response"] != undefined ){
-				element +=		'<textarea rows="2" cols="18" size="17"></textarea> <a class="send button" href="#">Send</a>';
+				element +=		'<textarea rows="2" cols="23" size="17"></textarea> <a class="send button" href="#">Send</a>';
 				element +=	'</div>';
 				element +='</div>';
 				

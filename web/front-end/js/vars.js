@@ -178,67 +178,112 @@ var m8 = {
    }
 };
 
-var w0 = { "n" : "Wow! A passage about wild life! I wonder what they could be talking about?" };
+var w0 = {
+   n: 'Wow! A passage about wild life! I wonder what they could be talking about?'
+};
 
 var w1 = {
-       n: ' Why do you think Epimetheus forgot his brother\'s words?',
-       b: {
-          ' Epimetheus\' brother was a liar.': {
-             n: 'Wasn’t it something about love..!? Read the last sentence again. '
-          },
-          ' Epimetheus fell in love with Pandora.': {
-             n: 'He totally loves her!!!'
-          },
-          ' Epimetheus did not like his brother.': {
-             n: ' Wasn’t it something about love..!? Read the last sentence again. '
-          }
-       }
-    };
+   n: ' Do you know what wolves are?',
+   b: {
+      ' Yes': {
+         n: 'Yeah, wolves are cool!'
+      },
+      ' No': {
+         n: 'They are members of the dog family.'
+      }
+   }
+};
     
 var w2 =    {
-        n: ' Maybe a quick definition of Yellowstone park with a picture'
-    };
+   n: 'Yellowstone is an awesome park in Wyoming. It’s huge and has got lakes, an active volcano, and hundreds of different kinds of mammals, fish, and birds.'
+};
 
-var w3 =    {
-        n: ' Did you notice that Doug Smith is now called a doctor?'
-    };
+var w3 =  {
+   n: 'Did you notice that Doug Smith is now called a doctor?'
+};
 
-var w4 =       {
-        n: ' What does it mean to be persecuted?',
-        b: {
-            Free_Response: {
-                n: 'Thanks. Let’s keep reading.'
-            }
-		}
-     };
+var w4 = {
+   n: 'What does it mean to be persecuted?',
+   b: {
+      Free_Response: {
+         n: 'Alrighty. Let’s keep reading.'
+      }
+   }
+};
 
-var w5 =       {
-        n: ' Hmm.. It sounds like Doug was really passionate about getting involved. Have you ever been passionate about getting involved with something?',
-        b: {
-             Free_Response: {
-                 n: 'Thanks. Let’s keep reading.'
-             }
-			}
-      };     
+var w5 = {
+   n: 'Hmm.. It sounds like Doug was really passionate about getting involved. Have you ever been passionate about getting involved with something?',
+   b: {
+      Free_Response: {
+         n: 'I love getting involved in lots of different things. Let’s get back to reading.'
+      }
+   }
+};    
     
 var w6 = {
-    n: ' Whoa! Wolves seemed to be treated really badly. Why do you think people were killing wolves?',
-    b: {
-         Free_Response: {
-             n: 'Thanks. Let’s keep reading.'
-         }
-	}
- };
+   n: ' Whoa! Wolves seemed to be treated really badly. Why do you think people were killing wolves?',
+   b: {
+      Record: {
+         n: 'Thanks. Let’s keep reading.'
+      }
+   }
+};
 
 var w7 = {};
 
 var w8 = {
-    n: ' What lesson do you think the wolves are teaching us?',
-    b: {
-         Free_Response: {
-             n: 'Thanks. Let’s keep reading.'
-         }
-	}
+   n: 'What lesson do you think the wolves are teaching us?',
+   b: {
+      Record: {
+         n: 'Thanks. Let’s keep reading.'
+      }
+   }
+};
+
+var w9 = {
+   n: 'Hmm... there\'s always two sides to every story'
+};
+
+var w10 = {
+   n: 'Old wounds? What could the author be talking about here?',
+   b: {
+      Free_Response: {
+         n: 'Okie dokie. Let’s get back to reading.'
+      }
+   }
+};
+
+var w11 = {
+   n: 'Hmm... the text says a human centered view says the earth is here for our disposal. Do you think having a human-centered view is a good thing or a bad thing?',
+   b: {
+      Free_Response: {
+         n: 'Okay. Let’s get back to reading.'
+      }
+   }
+};
+
+var w12 = {
+   n: 'Oh No, wolves could eat people too!'
+};
+
+var w13 = {
+   n: 'Can you imagine what it would be like if you saw a wolf in your neighborhood?!'
+};
+
+var w14 = {
+           "n" : "After reading both sides, do you think wolves should be restored?",
+           "b" : {
+                       " Yes":{
+                                   "n" : "Yes! Power to the wolves!"
+                       },
+                       " No":{
+                                   "n" : "Really? I think wolves should be restored! Poor little wolfies!"
+                       }
+           }
+};
+
+var w15 = {
+   n: 'Wow! You read this whole passage!? I\'m really impressed you just read 860 words!'
 };
 
 
