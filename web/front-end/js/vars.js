@@ -1,7 +1,7 @@
 ﻿
 
 //Pandora Text
-var p1 = { "n" : " I'm so excited to learn more about The Ancient Greeks. The things that we learned about them in Ben's class was so interesting. They were good at fighting and they invented democracy. Now we can see what kind of stories they told." };
+var p1 = { "n" : " I'm so excited to learn more about The Ancient Greeks. The things that we learned about them in Ben's class was so interesting. They were good at fighting and they invented democracy. Now we can see what kind of stories they told. You can use the \"next\" button below  to turn the page." };
 var p2 = { "n" : " Zeus is like the god of all of the gods. He's the big guy in charge. Remember when we learned about Zeus in Ben's class? That was cool!" };
 var p3 = {
    n: ' Whoa! Wait a minute! I wonder why would Zeus give Pandora an awesome box, but then tell her not to open it? ',
@@ -67,7 +67,7 @@ var p9 = {
 
 
 var m1 = {
-   n: 'I don\'t know about you, but sometimes I think non-fiction can be boring. Maybe this one will be good!'
+   n: 'I don\'t know about you, but sometimes I think non-fiction can be boring. Maybe this one will be good! You can use the "next" button below to turn the page.'
 };
 
 var m2 = {
@@ -179,7 +179,7 @@ var m8 = {
 };
 
 var w0 = {
-   n: 'Wow! A passage about wild life! I wonder what they could be talking about?'
+   n: 'Wow! A passage about wild life! I wonder what they could be talking about? You can use the "next" button below to turn the page.'
 };
 
 var w1 = {
@@ -223,7 +223,7 @@ var w5 = {
 var w6 = {
    n: ' Whoa! Wolves seemed to be treated really badly. Why do you think people were killing wolves?',
    b: {
-      Record: {
+      _REC: {
          n: 'Thanks. Let’s keep reading.'
       }
    }
@@ -234,7 +234,7 @@ var w7 = {};
 var w8 = {
    n: 'What lesson do you think the wolves are teaching us?',
    b: {
-      Record: {
+      _REC: {
          n: 'Thanks. Let’s keep reading.'
       }
    }

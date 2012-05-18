@@ -23,11 +23,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-1812.4038"
-     inkscape:cy="-639.29111"
+     inkscape:zoom="1"
+     inkscape:cx="-2101.7906"
+     inkscape:cy="-529.87497"
      inkscape:document-units="px"
-     inkscape:current-layer="g13485"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="706"
@@ -2763,7 +2763,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -6436,7 +6436,7 @@
     </g>
     <g
        id="g8936-5-9"
-       transform="matrix(0.96279838,0,0,0.96279838,-376.1597,674.17889)"
+       transform="matrix(0.96279838,0,0,0.96279838,-373.1597,674.17889)"
        inkscape:export-filename="C:\Users\luke\Desktop\g8s936.png"
        inkscape:export-xdpi="169.42502"
        inkscape:export-ydpi="169.42502">
@@ -6617,10 +6617,10 @@
     <g
        id="g13485">
       <g
-         transform="translate(52.325902,0)"
+         transform="translate(-299.6741,13)"
          inkscape:export-ydpi="90.550003"
          inkscape:export-xdpi="90.550003"
-         inkscape:export-filename="C:\Users\luke\Desktop\g13381.png"
+         inkscape:export-filename="C:\Users\luke\Desktop\start.png"
          id="g13381">
         <g
            id="g8936-9"
@@ -6646,7 +6646,7 @@
                sodipodi:cy="-41.779602"
                sodipodi:rx="15.75"
                sodipodi:ry="15.75"
-               d="m 146,-41.779602 c 0,8.698485 -7.05152,15.75 -15.75,15.75 -8.69848,0 -15.75,-7.051515 -15.75,-15.75 0,-8.698485 7.05152,-15.75 15.75,-15.75 8.69848,0 15.75,7.051515 15.75,15.75 z"
+               d="m 146,-41.779602 a 15.75,15.75 0 1 1 -31.5,0 15.75,15.75 0 1 1 31.5,0 z"
                transform="matrix(0.16494619,0,0,0.16494619,-1783.6754,957.48195)" />
           </g>
           <g
@@ -6716,7 +6716,7 @@
                  sodipodi:cy="573.78125"
                  sodipodi:rx="4.0625"
                  sodipodi:ry="3.90625"
-                 d="m 284.625,573.78125 c 0,2.15736 -1.81884,3.90625 -4.0625,3.90625 -2.24366,0 -4.0625,-1.74889 -4.0625,-3.90625 0,-2.15736 1.81884,-3.90625 4.0625,-3.90625 2.24366,0 4.0625,1.74889 4.0625,3.90625 z"
+                 d="m 284.625,573.78125 a 4.0625,3.90625 0 1 1 -8.125,0 4.0625,3.90625 0 1 1 8.125,0 z"
                  transform="matrix(9.7091972,0,0,9.7091972,-25668.449,13508.094)" />
               <path
                  sodipodi:type="arc"
@@ -6726,17 +6726,20 @@
                  sodipodi:cy="576.375"
                  sodipodi:rx="3"
                  sodipodi:ry="3.0625"
-                 d="m 286.375,576.375 c 0,1.69137 -1.34315,3.0625 -3,3.0625 -1.65685,0 -3,-1.37113 -3,-3.0625 0,-1.69137 1.34315,-3.0625 3,-3.0625 1.65685,0 3,1.37113 3,3.0625 z"
+                 d="m 286.375,576.375 a 3,3.0625 0 1 1 -6,0 3,3.0625 0 1 1 6,0 z"
                  transform="matrix(7.9258753,0,0,7.9258753,-25187.485,14518.054)" />
             </g>
           </g>
         </g>
       </g>
       <g
-         transform="translate(94.752308,0)"
-         id="g13480">
+         transform="translate(381.75231,0)"
+         id="g13480"
+         inkscape:export-filename="C:\Users\luke\Desktop\start.png"
+         inkscape:export-xdpi="90.550003"
+         inkscape:export-ydpi="90.550003">
         <path
-           style="fill:none;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            d="m -1842.0132,1612.8327 c 42.8563,-3.1788 72.0706,38.2269 32.5269,61.8718"
            id="path13407"
            inkscape:connector-curvature="0"
@@ -6755,18 +6758,21 @@
            sodipodi:nodetypes="cc" />
       </g>
       <text
-         transform="matrix(0.9658193,-0.25921627,0.25921627,0.9658193,0,0)"
+         transform="matrix(0.99312453,0.11706265,-0.11706265,0.99312453,0,0)"
          sodipodi:linespacing="125%"
          id="text13474"
-         y="1176.7483"
-         x="-2274.9631"
+         y="1848.1927"
+         x="-1285.303"
          style="font-size:20.36173439px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Tekton Pro;-inkscape-font-specification:Tekton Pro Bold"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           y="1176.7483"
-           x="-2274.9631"
-           id="tspan13476"
-           sodipodi:role="line">touch this little guy</tspan></text>
+         xml:space="preserve"
+         inkscape:export-filename="C:\Users\luke\Desktop\start.png"
+         inkscape:export-xdpi="90.550003"
+         inkscape:export-ydpi="90.550003"><tspan
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.69999999;stroke-miterlimit:4;stroke-dasharray:none;font-family:Simplified Arabic Fixed;-inkscape-font-specification:Simplified Arabic Fixed Bold"
+           y="1848.1927"
+           x="-1285.303"
+           sodipodi:role="line"
+           id="tspan13514">Touch here to begin!</tspan></text>
     </g>
   </g>
 </svg>

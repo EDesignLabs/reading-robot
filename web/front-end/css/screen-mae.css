@@ -38,6 +38,7 @@
 
 .flex-control-nav{
 	padding-left: 10px;
+	display:none;
 }
 
 
@@ -55,6 +56,7 @@
 
 .flex-direction-nav{
 	width: 100%;
+	display:none;
 }
 
 .flex-direction-nav li a{
@@ -103,5 +105,6 @@
     float: right;
     margin-right: 14px;
     text-decoration: none;
+	font-weight: bold;
 }
 

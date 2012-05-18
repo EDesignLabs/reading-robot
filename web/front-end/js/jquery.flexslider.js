@@ -298,6 +298,9 @@
           dx = (slider.vertical) ? startX - e.touches[0].pageY : startX - e.touches[0].pageX;
           scrolling = (slider.vertical) ? (Math.abs(dx) < Math.abs(e.touches[0].pageX - startY)) : (Math.abs(dx) < Math.abs(e.touches[0].pageY - startY));
 
+		  if (scrolling)
+			scrolling = (Math.abs(dx) > 50); ///MAKE IT LESS SENSITIVE LBG
+		  
           if (!scrolling) {
             e.preventDefault();
             if (slider.vars.animation == "slide" && slider.transitions) {

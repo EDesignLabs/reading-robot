@@ -52,6 +52,10 @@
 		$(".ct").click(function () {
 			//$('html,body').animate({scrollTop:  $('html,body').prop("scrollHeight") },'slow');
 			$(this).animate({opacity: 0, width: 0}); 
+			
+			$('.flex-control-nav').show();
+			$('.flex-direction-nav').show();
+			
 			nodes = window[$(this).data('id')];
 			monsterSay(700); 
 			
@@ -125,10 +129,69 @@
 			
 			console.log(nodes["b"]["_REC"]);
 			if (nodes["b"]["_REC"] != undefined ){   //////////////////////LETS RECORD INSTEAD OF MULTICHOICE
-				if (ipad){
-					window.location = "_REC";
 					console.log("RECORDING");
-				}
+					
+							element += 'Touch the record button to start recording your voice....<br>';
+							element += '<a href = "#c" class = "record button" ><img src="imgs/record.png" style="position: relative; left: -4px; top: 2px;">RECORD VOICE</a><br>'; 
+						element +=	'</div>';
+					element +='</div>	';
+					var ele = $(link).find('.chat .scrollbar ').append(element);
+					
+					ele.find(".record.button").click(function(){
+						if (ipad){
+							window.location = "_REC";
+							
+							
+							
+						}else{
+							alert("Not an ipad. Recording disabled.");
+						}
+						
+						
+						function recordSet(elem){
+							b = 'Now Recording <img src="imgs/running.gif" style="position: relative; left: -4px; top: 2px;"><br><br>';
+							b += '<a href = "#c" class = "stop button" ><img src="imgs/stop.jpg" style="position: relative; left: -4px; top: 2px;">STOP RECORDING</a><br>'; 
+							
+							$(elem).parent().html(b);
+							
+							$('.stop.button').click(function(){
+								if (ipad)
+									window.location = "_REC";
+									
+								b = '<img style="width: 237px;" src="imgs/wave.jpg">';
+								b += '<a href = "#c" class = "accept button" >ACCEPT and SEND.<img src="imgs/like.jpg" style="position: relative; left: -4px; top: 2px;"> </a><br>'; 
+								b += '<a href = "#c" class = "again button" >TRY AGAIN <img src="imgs/redo.png" style="position: relative; left: -4px; top: 2px;"></a><br>'; 
+								$(this).parent().html(b);
+								
+								$('.accept.button').click(function(){
+									if (ipad)
+										window.location = " ACCEPT_REC";
+										
+									$(this).parent().find('.button').remove();
+									nodes = nodes.b["_REC"]; 
+									monsterSay(500);
+								});
+								
+								$('.again.button').click(function(){
+									if (ipad)
+										window.location = "REDO_REC";
+									
+									recordSet(this);
+								});
+								
+								$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
+							});
+						}
+						
+						recordSet(this);
+						
+						
+
+						
+						
+					});
+					
+
 			}
 			else if (nodes["b"]["Free_Response"] != undefined ){
 				element +=		'<textarea rows="2" cols="23" size="17"></textarea> <a class="send button" href="#">Send</a>';
