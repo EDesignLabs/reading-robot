@@ -12,7 +12,6 @@
 		swipeTo($('#books'),$(link));
 		
 		
-		
 		$(link).flexslider({
 			controlsContainer: ".flex-container",
 			animation: "slide",              //String: Select your animation type, "fade" or "slide"
@@ -88,24 +87,18 @@
 	}
 	
 	function monsterWait(){
-		var element = '';
-		element +='<div class = "item right monster-wait" >';
-		element +='	<div class = "icon" >';
-		element +='		<img src="imgs/m-chat.png" class="monster">';
-		element +='	</div>';
-		element +=	'<div class = "text" >';
-		element +=		"<i>reading monster is typing...</i>" ;
-		element +=	'</div>';
-		element +='</div>	';
+		
 		
 		if (nodes["n"] != "")
-			$(link).find('.chat .scrollbar').append($(element));
+			$(".monster-wait").appendTo($(link).find('.chat .scrollbar'));
 		
 		$('.scrollbar').scrollTop(900000);
 	}
 	
 	window.audioReady = function () {
-		$('.monster-wait').remove();
+		
+		
+		$(".monster-wait").appendTo(".hider");
 		
 		var element = '';
 		element +='<div class = "item right" >';
@@ -152,92 +145,98 @@
 			if (nodes["b"]["_REC"] != undefined ){   //////////////////////LETS RECORD INSTEAD OF MULTICHOICE
 					console.log("RECORDING");
 					
-							element += 'Touch the record button to start recording your voice....<br>';
-							element += '<a href = "#c" class = "record button" ><img src="imgs/record.png" style="position: relative; left: -4px; top: 2px;">RECORD VOICE</a><br>'; 
-						element +=	'</div>';
-					element +='</div>	';
-					var ele = $(link).find('.chat .scrollbar ').append(element);
+					$(".record-start").appendTo($(link).find('.chat .scrollbar'));
+					$(".record-start").find(".record.button").click(function(){
+						
+						$(".record-start").appendTo(".hider");
+						$(".record-recording").appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = "_REC";
+							
+						return false;
+					});
 					
+					$(".record-recording").find(".stop.button").click(function(){
+						
+						$(".record-recording").appendTo(".hider");
+						$(".record-done").appendTo($(link).find('.chat .scrollbar'));
+						$(".record-done").find(".play.button").text("PLAY");
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = "_REC";
+							
+						return false;
+					});
+					
+					$(".record-done").find(".play.button").click(function(){
+						if (ipad)
+							window.location = " _REC";
+							
+						if ($(this).text() == "PLAY"){
+							$(this).text("PAUSE");
+						}else{
+							$(this).text("PLAY");
+						}
+						return false;
+					});
+					
+					$(".record-done").find(".again.button").click(function(){
+						
+						$(".record-done").appendTo(".hider");
+						$(".record-recording").appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = " REDO_REC";
+							
+						return false;
+					});
+					
+					$(".record-done").find(".done.button").click(function(){
+						
+						$(".record-done").appendTo(".hider");
+						
+						$(".record-token").clone().appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = " ACCEPT_REC";
+						
+						nodes = nodes.b["_REC"]; 
+						monsterSay(500);
+						
+						return false;
+					});
+					
+					/*
+					var state = 1;
 					ele.find(".record.button").click(function(){
 						if (ipad){
 							window.location = "_REC";
 							
-							
+							if (state == 1){
+								$(this).parent().find('.button').text('STOP RECORDING');
+								$(this).parent().find('.span').hide();
+								$(this).parent().find('.recording').show();
+								state +=1;
+							}
+							else{
+								setTimeout(function(){window.location = " ACCEPT_REC";}, 500);
+								
+								$(this).parent().text("(You recorded something)");
+								nodes = nodes.b["_REC"]; 
+								monsterSay(500);
+							}							
 							
 						}else{
 							alert("Not an ipad. Recording disabled.");
 						}
-						
-						
-						function recordSet(elem){
-							
-						
-							b = 'Now Recording <img src="imgs/running.gif" style="position: relative; left: -4px; top: 2px;"><br><br>';
-							b += '<a href = "#c" class = "stop button" ><img src="imgs/stop.jpg" style="position: relative; left: -4px; top: 2px;">STOP RECORDING</a><br>'; 
-							
-							$(elem).parent().text(b);
-							
-							
-							$('.scrollbar').scrollTop(900000);
-							
-							$('.stop.button').click(function(){
-								if (ipad)
-									window.location = "_REC";
-									
-								b =  '<a href = "#c" class = "play button" >PLAY</a><br>'; 
-								b += '<a href = "#c" class = "accept button" >DONE</a><br>'; 
-								b += '<a href = "#c" class = "again button" >TRY AGAIN </a><br>'; 
-								
-								$(this).parent().html(b);
-								
-								setTimeout(function(){$('.scrollbar').scrollTop(900000);},600);
-								setTimeout(function(){$('.scrollbar').scrollTop(900000);},1000);
-								setTimeout(function(){$('.scrollbar').scrollTop(900000);},1500);
-								
-								$('.scrollbar').scrollTop(900000);
-								$('.accept.button').click(function(){
-									if (ipad)
-										window.location = " ACCEPT_REC";
-										
-									$(this).parent().html("(You recorded something!)");
-									$(this).parent().find('.button').remove();
-									
-									
-									nodes = nodes.b["_REC"]; 
-									monsterSay(500);
-								});
-								
-								
-								$('.play.button').click(function(){
-									if (ipad)
-										window.location = " _REC";
-										
-									if ($(this).text() == "PLAY"){
-										$(this).text("PAUSE");
-									}else{
-										$(this).text("PLAY");
-									}
-								});
-								
-								$('.again.button').click(function(){
-									if (ipad)
-										window.location = "REDO_REC";
-									
-									recordSet(this);
-								});
-								
-								$('.scrollbar').scrollTop(900000);
-							});
-						}
-						
-						recordSet(this);
-						
-						
-
-						
-						
 					});
 					
+					*/
 
 			}
 			else if (nodes["b"]["Free_Response"] != undefined ){
@@ -258,7 +257,7 @@
 						if (ele.find('textarea').last().val().length > 3){
 							ele.find('textarea').hide();
 							ele.find('.send').hide();
-							ele.find('.text').last().append(ele.find('textarea').val());
+							ele.find('.text').last().text(ele.find('textarea').last().val());
 							
 							nodes = nodes.b["Free_Response"]; 
 							monsterSay(500);
