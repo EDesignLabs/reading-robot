@@ -175,7 +175,7 @@
 							b = 'Now Recording <img src="imgs/running.gif" style="position: relative; left: -4px; top: 2px;"><br><br>';
 							b += '<a href = "#c" class = "stop button" ><img src="imgs/stop.jpg" style="position: relative; left: -4px; top: 2px;">STOP RECORDING</a><br>'; 
 							
-							$(elem).parent().text(b);
+							$(elem).parent().html(b);
 							
 							
 							$('.scrollbar').scrollTop(900000);
