@@ -83,6 +83,8 @@
 				
 				<div class = "chat" >
 					<div class = "bar" ></div>
+					<div class = "tools" ><a onclick = "javascript:var agree=confirm('Finished reading?');if (agree)return true; else return false ;" href = "http://aphes.com/dtc" ><img src = "imgs/home.png" ></a></div>
+
 					<div class = "scrollbar" >
 
 					</div>
@@ -109,6 +111,8 @@
 				
 				<div class = "chat" >
 					<div class = "bar" ></div>
+					<div class = "tools" ><a onclick = "javascript:var agree=confirm('Finished reading?');if (agree)return true; else return false ;" href = "http://aphes.com/dtc" ><img src = "imgs/home.png" ></a></div>
+
 					<div class = "scrollbar" >
 
 					</div>
@@ -138,11 +142,69 @@
 
 					<div class = "chat" >
 						<div class = "bar" ></div>
+						<div class = "tools" ><a onclick = "javascript:var agree=confirm('Finished reading?');if (agree)return true; else return false ;" href = "http://aphes.com/dtc" ><img src = "imgs/home.png" ></a></div>
 						<div class = "scrollbar" >
 
 						</div>
 					</div>
 				</div>
+		
+		</div>
+		
+		
+		<div class = "hider" style = "display:none;s" >
+
+			<div class = "item right monster-wait" >
+				<div class = "icon" >
+					<img src="imgs/m-chat.png" class="monster">
+				</div>
+				<div class = "text" >
+					reading monster is typing...
+				</div>
+			</div>
+			
+
+			
+			
+			<div class = "item record-start" >
+				<div class = "icon" >
+					<img src="imgs/u-chat.png" class="monster">
+				</div>
+				<div class = "text" >
+					Touch the record button to start recording your voice....<br><br>
+					<a href = "#c" class = "record button" ><img src="imgs/record.png" style="position: relative; left: -4px; top: 2px;">RECORD VOICE</a><br>
+				</div>
+			</div>
+		
+			<div class = "item record-recording" >
+				<div class = "icon" >
+					<img src="imgs/u-chat.png" class="monster">
+				</div>
+				<div class = "text" >
+					Now Recording <img src="imgs/running.gif" style="position: relative; left: -4px; top: 2px;"><br><br>
+					<a href = "#c" class = "stop button" ><img src="imgs/stop.jpg" style="position: relative; left: -4px; top: 2px;">STOP RECORDING</a><br>
+				</div>
+			</div>
+			
+			<div class = "item record-done" >
+				<div class = "icon" >
+					<img src="imgs/u-chat.png" class="monster">
+				</div>
+				<div class = "text" >
+					<a href = "#c" class = "play button" >PLAY YOUR RECORDING</a><br> 
+					<a href = "#c" class = "again button" >TRY RECORDING AGAIN </a><br> 
+					<a href = "#c" class = "done button" >DONE</a><br>
+				</div>
+			</div>
+			
+			<div class = "item record-token" >
+				<div class = "icon" >
+					<img src="imgs/u-chat.png" class="monster">
+				</div>
+				<div class = "text" >
+					(You recorded something!)
+				</div>
+			</div>
 		
 		</div>
 		

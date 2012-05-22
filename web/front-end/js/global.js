@@ -43,6 +43,8 @@ function recordResultURL (url){
 var ipad = false;
 
 function tts(text){
+	text = text.replace('"','');
+
 	if (ipad)
 		window.location = "_TTS?text=" + text;
 }
@@ -50,3 +52,4 @@ function tts(text){
 function ipadstart(){
 	ipad = true;
 }
+

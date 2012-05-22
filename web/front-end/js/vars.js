@@ -7,7 +7,7 @@ var p3 = {
    n: ' Whoa! Wait a minute! I wonder why would Zeus give Pandora an awesome box, but then tell her not to open it? ',
    b: {
       Free_Response: {
-         n: 'Thanks. Let’s keep reading.'
+         n: 'Thanks. Let’s keep going.'
       }
    }
 };
@@ -56,7 +56,7 @@ var p8 = {
 var p9 = {
    n: 'What was your favorite part of the story?',
    b: {
-      "_REC": {
+      _REC: {
          n: 'My favorite part was that Hope staued to help human fight evil. Thanks for reading with me. It was so fun!'
       }
    }
@@ -73,8 +73,8 @@ var m1 = {
 var m2 = {
    n: ' That\'s pretty cool. The Endeavour was special for a lot of reasons! Why do you think it was special?',
    b: {
-      "_REC": {
-         n: 'Interesting. Let’s keep reading.'
+      _REC: {
+         n: 'Interesting. Let’s keep going.'
       }
    }
 };
@@ -82,18 +82,30 @@ var m3 = {
    n: 'Mae\'s parents sound cool. Can you figure out how Mae\'s parents influenced her?',
    b: {
       Yes: {
-         n: '',
+         n: 'How did Mae\'s parents influence her?',
          b: {
-            Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+            'Her parents were scientists': {
+               n: 'Thanks. Let’s keep going.'
+            },
+            'Her parents wanted her to explore her interests.': {
+               n: 'Thanks. Let’s keep going.'
+            },
+            'They read to her each night.': {
+               n: 'Thanks. Let’s keep going.'
             }
          }
       },
       No: {
          n: ' I wasn\'t sure at first either, so I went back and read this paragraph and tried to find where it talked about Mae\'s parents. Can you figure out how Mae\'s parents influenced her?',
          b: {
-            Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+            'Her parents were scientists': {
+               n: 'Thanks. Let’s keep going.'
+            },
+            'Her parents wanted her to explore her interests.': {
+               n: 'Thanks. Let’s keep going.'
+            },
+            'They read to her each night.': {
+               n: 'Thanks. Let’s keep going.'
             }
          }
       }
@@ -103,10 +115,10 @@ var m4 = {
    n: ' Hard work! That\'s all everyone talks about! I have some ideas about how Mae is going to work hard. Do you think you know how she\'s going to accomplish her goal?',
    b: {
       Yes: {
-         n: '',
+         n: 'Why do you think that?',
          b: {
             Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+               n: 'Thanks. Let’s keep going.'
             }
          }
       },
@@ -114,7 +126,7 @@ var m4 = {
          n: ' What do most people have to do to accomplish their goals? What do you think she\'s going to do to accomplish her goals?',
          b: {
             Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+               n: 'Thanks. Let’s keep going.'
             }
          }
       }
@@ -128,7 +140,7 @@ var m5 = {
          n: 'How do you think the problems she learned about influenced her life?',
          b: {
             Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+               n: 'Thanks. Let’s keep going.'
             }
          }
       },
@@ -136,7 +148,7 @@ var m5 = {
          n: ' Can you list some problems you think she learned about?',
          b: {
             Free_Response: {
-               n: 'Thanks. Let’s keep reading.'
+               n: 'Thanks. Let’s keep going.'
             }
          }
       }
@@ -151,7 +163,7 @@ var m7 = {
    n: ' She made it into space! What do you picture when you read these sentences?',
    b: {
       "_REC": {
-         n: 'Thanks. Let’s keep reading.'
+         n: 'Thanks. Let’s keep going.'
       }
    }
 };
@@ -206,16 +218,16 @@ var w4 = {
    n: 'What does it mean to be persecuted?',
    b: {
       Free_Response: {
-         n: 'Alrighty. Let’s keep reading.'
+         n: 'Alrighty. Let’s keep going.'
       }
    }
 };
 
 var w5 = {
-   n: 'Hmm.. It sounds like Doug was really passionate about getting involved. Have you ever been passionate about getting involved with something?',
+   n: 'Interesting.. It sounds like Doug was really passionate about getting involved. Have you ever been passionate about getting involved with something?',
    b: {
       Free_Response: {
-         n: 'I love getting involved in lots of different things. Let’s get back to reading.'
+         n: 'I love getting involved in lots of different things. Let’s get back to the text.'
       }
    }
 };    
@@ -224,7 +236,7 @@ var w6 = {
    n: ' Whoa! Wolves seemed to be treated really badly. Why do you think people were killing wolves?',
    b: {
       _REC: {
-         n: 'Thanks. Let’s keep reading.'
+         n: 'Thanks. Let’s keep going.'
       }
    }
 };
@@ -235,29 +247,29 @@ var w8 = {
    n: 'What lesson do you think the wolves are teaching us?',
    b: {
       _REC: {
-         n: 'Thanks. Let’s keep reading.'
+         n: 'Thanks. Let’s keep going.'
       }
    }
 };
 
 var w9 = {
-   n: 'Hmm... there\'s always two sides to every story'
+   n: 'Interesting... there\'s always two sides to every story'
 };
 
 var w10 = {
    n: 'Old wounds? What could the author be talking about here?',
    b: {
       Free_Response: {
-         n: 'Okie dokie. Let’s get back to reading.'
+         n: 'Okie dokie. Let’s get back to going.'
       }
    }
 };
 
 var w11 = {
-   n: 'Hmm... the text says a human centered view says the earth is here for our disposal. Do you think having a human-centered view is a good thing or a bad thing?',
+   n: 'Interesting... the text says a human centered view says the earth is here for our disposal. Do you think having a human-centered view is a good thing or a bad thing?',
    b: {
       Free_Response: {
-         n: 'Okay. Let’s get back to reading.'
+         n: 'Okay. Let’s keep going.'
       }
    }
 };

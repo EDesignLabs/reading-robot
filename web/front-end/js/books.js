@@ -5,11 +5,11 @@
 	var lastMonsterResponse = "";
 	var lastHumanResponse = "";
 	
+	$('.flexslider p').click(function(){$(this).blur();});
 
 	$('#books a').click(function(){
 		link = $(this).attr('href');
 		swipeTo($('#books'),$(link));
-		
 		
 		
 		$(link).flexslider({
@@ -35,6 +35,8 @@
 			after: function(slider){
 				console.log(slider.currentSlide);
 			
+				/*
+			
 				if (link == "#mae"){
 					if (slider.currentSlide  == 5){
 						nodes = {n:"Wow 5 pages. Keep it up!"};
@@ -42,7 +44,7 @@
 					}
 						
 				}
-					
+					*/
 			}
 		});
 		
@@ -74,37 +76,49 @@
 	
 
 	function monsterSay(delay){
-		console.log("--------------------------");
-		console.log(nodes);
-		console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+		
+		monsterWait();
+		
+		if (nodes["n"] != "")
+			setTimeout(function(){$('.scrollbar').scrollTop(900000);tts(nodes["n"]);}, 150);
+		
+		if (!ipad)
+			setTimeout(function(){window.audioReady();}, 700);
+	}
 	
-		if (delay == undefined || delay > 900 )
-			$(link).find('.typing').show();
-		
-		setTimeout(function(){
-					tts(nodes["n"]);
-		
-					$(link).find('.typing').hide();
-					var element = '';
-					element +='<div class = "item right" >';
-					element +='	<div class = "icon" >';
-					element +='		<img src="imgs/m-chat.png" class="monster">';
-					element +='	</div>';
-					element +=	'<div class = "text" >';
-					element +=		nodes["n"];
-					element +=	'</div>';
-					element +='</div>	';
-					$(link).find('.chat .scrollbar').append(element);
-					
-					$('.scrollbar').scrollTop(900000);
-					
-					lastMonsterResponse = nodes["n"];
-					
-					if (nodes.b != undefined)
-						humanResponse(30);
-		},delay);
+	function monsterWait(){
 		
 		
+		if (nodes["n"] != "")
+			$(".monster-wait").appendTo($(link).find('.chat .scrollbar'));
+		
+		$('.scrollbar').scrollTop(900000);
+	}
+	
+	window.audioReady = function () {
+		
+		
+		$(".monster-wait").appendTo(".hider");
+		
+		var element = '';
+		element +='<div class = "item right" >';
+		element +='	<div class = "icon" >';
+		element +='		<img src="imgs/m-chat.png" class="monster">';
+		element +='	</div>';
+		element +=	'<div class = "text" >';
+		element +=		nodes["n"];
+		element +=	'</div>';
+		element +='</div>	';
+		
+		if (nodes["n"] != "")
+			$(link).find('.chat .scrollbar').append(element);
+		
+		$('.scrollbar').scrollTop(900000);
+		
+		lastMonsterResponse = nodes["n"];
+		
+		if (nodes.b != undefined)
+			humanResponse(30);
 	}
 
 	function humanResponse(delay){
@@ -131,95 +145,137 @@
 			if (nodes["b"]["_REC"] != undefined ){   //////////////////////LETS RECORD INSTEAD OF MULTICHOICE
 					console.log("RECORDING");
 					
-							element += 'Touch the record button to start recording your voice....<br>';
-							element += '<a href = "#c" class = "record button" ><img src="imgs/record.png" style="position: relative; left: -4px; top: 2px;">RECORD VOICE</a><br>'; 
-						element +=	'</div>';
-					element +='</div>	';
-					var ele = $(link).find('.chat .scrollbar ').append(element);
+					$(".record-start").appendTo($(link).find('.chat .scrollbar'));
+					$(".record-start").find(".record.button").click(function(){
+						
+						$(".record-start").appendTo(".hider");
+						$(".record-recording").appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = "_REC";
+							
+						return false;
+					});
 					
+					$(".record-recording").find(".stop.button").click(function(){
+						
+						$(".record-recording").appendTo(".hider");
+						$(".record-done").appendTo($(link).find('.chat .scrollbar'));
+						$(".record-done").find(".play.button").text("PLAY");
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = "_REC";
+							
+						return false;
+					});
+					
+					$(".record-done").find(".play.button").click(function(){
+						if (ipad)
+							window.location = " _REC";
+							
+						if ($(this).text() == "PLAY"){
+							$(this).text("PAUSE");
+						}else{
+							$(this).text("PLAY");
+						}
+						return false;
+					});
+					
+					$(".record-done").find(".again.button").click(function(){
+						
+						$(".record-done").appendTo(".hider");
+						$(".record-recording").appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = " REDO_REC";
+							
+						return false;
+					});
+					
+					$(".record-done").find(".done.button").click(function(){
+						
+						$(".record-done").appendTo(".hider");
+						
+						$(".record-token").clone().appendTo($(link).find('.chat .scrollbar'));
+						$('.scrollbar').scrollTop(900000);
+						
+						if (ipad)
+							window.location = " ACCEPT_REC";
+						
+						nodes = nodes.b["_REC"]; 
+						monsterSay(500);
+						
+						return false;
+					});
+					
+					/*
+					var state = 1;
 					ele.find(".record.button").click(function(){
 						if (ipad){
 							window.location = "_REC";
 							
-							
+							if (state == 1){
+								$(this).parent().find('.button').text('STOP RECORDING');
+								$(this).parent().find('.span').hide();
+								$(this).parent().find('.recording').show();
+								state +=1;
+							}
+							else{
+								setTimeout(function(){window.location = " ACCEPT_REC";}, 500);
+								
+								$(this).parent().text("(You recorded something)");
+								nodes = nodes.b["_REC"]; 
+								monsterSay(500);
+							}							
 							
 						}else{
 							alert("Not an ipad. Recording disabled.");
 						}
-						
-						
-						function recordSet(elem){
-							b = 'Now Recording <img src="imgs/running.gif" style="position: relative; left: -4px; top: 2px;"><br><br>';
-							b += '<a href = "#c" class = "stop button" ><img src="imgs/stop.jpg" style="position: relative; left: -4px; top: 2px;">STOP RECORDING</a><br>'; 
-							
-							$(elem).parent().html(b);
-							
-							$('.stop.button').click(function(){
-								if (ipad)
-									window.location = "_REC";
-									
-								b = '<img style="width: 237px;" src="imgs/wave.jpg">';
-								b += '<a href = "#c" class = "accept button" >ACCEPT and SEND.<img src="imgs/like.jpg" style="position: relative; left: -4px; top: 2px;"> </a><br>'; 
-								b += '<a href = "#c" class = "again button" >TRY AGAIN <img src="imgs/redo.png" style="position: relative; left: -4px; top: 2px;"></a><br>'; 
-								$(this).parent().html(b);
-								
-								$('.accept.button').click(function(){
-									if (ipad)
-										window.location = " ACCEPT_REC";
-										
-									$(this).parent().find('.button').remove();
-									nodes = nodes.b["_REC"]; 
-									monsterSay(500);
-								});
-								
-								$('.again.button').click(function(){
-									if (ipad)
-										window.location = "REDO_REC";
-									
-									recordSet(this);
-								});
-								
-								$(link).find('.scrollbar').animate({scrollTop:  $(link).find('.scrollbar').prop("scrollHeight") },'slow');
-							});
-						}
-						
-						recordSet(this);
-						
-						
-
-						
-						
 					});
 					
+					*/
 
 			}
 			else if (nodes["b"]["Free_Response"] != undefined ){
-				element +=		'<textarea rows="2" cols="23" size="17"></textarea> <a class="send button" href="#">Send</a>';
+				element +=		'<textarea rows="2" cols="23" size="17">Tap here to type...</textarea> <a class="send button" href="#">Send</a>';
 				element +=	'</div>';
 				element +='</div>';
 				
 				var ele = $(link).find('.chat .scrollbar ').append(element);
+				
+				$(ele).find('textarea').focus(function() {
+				   $(this).val('');
+				});
+
+
+				
 				ele.find(".send").click(function(){
-					
-					ele.find('textarea').hide();
-					ele.find('.send').hide();
-					ele.find('.text').last().append(ele.find('textarea').val());
-					
-					nodes = nodes.b["free"]; 
-					monsterSay(500);
-					
-					$.ajax({
-					  type: 'POST',
-					  url: "http://aphes.com/dtc/request.php?query=createPrompt",
-					  data: {user: name, book: link.replace("#", ""), data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+ele.find('textarea').val(), bookpage: $('.currentpage').text()},
-					  success: function(a) {
-						  if (a === 0) console.log("fail");
-						  else if (a === 1) console.log("success");
-						},
-					  error: function(a) {
-						  console.log(a);
-						  }
-					});
+					if (ele.find('textarea').last().val().length > 3 && ele.find('textarea').val() != "Tap here to type..."){
+						if (ele.find('textarea').last().val().length > 3){
+							ele.find('textarea').hide();
+							ele.find('.send').hide();
+							ele.find('.text').last().text(ele.find('textarea').last().val());
+							
+							nodes = nodes.b["Free_Response"]; 
+							monsterSay(500);
+							
+							$.ajax({
+							  type: 'POST',
+							  url: "http://aphes.com/dtc/request.php?query=createPrompt",
+							  data: {user: name, book: link.replace("#", ""), data:"Monster Said: "+lastMonsterResponse+"<br>  A:"+ele.find('textarea').val(), bookpage: $('.currentpage').text()},
+							  success: function(a) {
+								  if (a === 0) console.log("fail");
+								  else if (a === 1) console.log("success");
+								},
+							  error: function(a) {
+								  console.log(a);
+								  }
+							});
+						}
+					}
 					
 					return false;
 				});
