@@ -1,6 +1,6 @@
 Reading Robot
 =============
-Reading Robot is an ipad/web app that engages individuals while reading through an interactive "companion". 
+Reading Robot is an ipad/web app that engages individuals in active reading through an interactive "companion". 
 
 Installation
 =============
