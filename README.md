@@ -7,7 +7,7 @@ Installation
 
 The app is composed of three parts. A web app that contains the frontend interactivity, an iOS wrapper around the web app to add functionality/interactivity, and a backend for gathering statistics and data. 
 
-The web/frontend componenet requeires no installation. It is a standlone html/js app. All dependicies are included in the repo. 
+The web/frontend component requires no installation. It is a stand-alone html/js app. All dependencies are included in the repo. 
 
 ## License
 
