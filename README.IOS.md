@@ -1,10 +1,12 @@
-###Setup
+#Setup
 
 The iOS app should be ready to go with a couple simple steps.
 
 
+###1. Make sure you're using the code in the iOS-Latest directory
 
 
+###2. Get the OpenEars library
 
 Reading Robot uses an open source text-to-speech library called OpenEars for the robot’s voice synthesis. To get the latest version go here: http://www.politepix.com/openears/.
 
